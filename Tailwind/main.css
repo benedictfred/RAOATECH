@@ -68,16 +68,16 @@ html {
   @apply bg-[#2B5587] h-[32rem] w-[22rem] rounded-tr-[17.5rem] -z-10 absolute top-[18rem] max-[480px]:w-full md:w-[20rem] md:h-[40rem];
 }
 #name {
-  @apply bg-[url("/images/Name.png")] bg-[30px_20px] bg-no-repeat p-[12px_20px_12px_70px];
+  @apply bg-[url("../images/Name.png")] bg-[30px_20px] bg-no-repeat p-[12px_20px_12px_70px];
 }
 #job {
-  @apply bg-[url("/images/Job.png")] bg-[30px_20px] bg-no-repeat p-[12px_20px_12px_70px];
+  @apply bg-[url("../images/Job.png")] bg-[30px_20px] bg-no-repeat p-[12px_20px_12px_70px];
 }
 #email {
-  @apply bg-[url("/images/Email.png")] bg-[30px_20px] bg-no-repeat p-[12px_20px_12px_70px];
+  @apply bg-[url("../images/Email.png")] bg-[30px_20px] bg-no-repeat p-[12px_20px_12px_70px];
 }
 #id {
-  @apply bg-[url("/images/BusinessCard.png")] bg-[30px_20px] bg-no-repeat p-[12px_20px_12px_70px];
+  @apply bg-[url("../images/BusinessCard.png")] bg-[30px_20px] bg-no-repeat p-[12px_20px_12px_70px];
 }
 .register__foot {
   @apply text-white font-[1rem] mt-2 flex justify-center items-center text-center;
@@ -123,7 +123,7 @@ html {
   @apply flex flex-col justify-center content-center mt-[5rem];
 }
 .dash__btn {
-  @apply text-white text-[1.5rem] text-center bg-[#FE705A] rounded-[50px_0px_50px_0px] w-[20rem] h-[3rem] bg-[url("/images/Login.png")] bg-[15rem] bg-no-repeat mt-[2rem];
+  @apply text-white text-[1.5rem] text-center bg-[#FE705A] rounded-[50px_0px_50px_0px] w-[20rem] h-[3rem] bg-[url("../images/Login.png")] bg-[15rem] bg-no-repeat mt-[2rem];
 }
 .dash__text {
   @apply text-white text-[1.5rem] font-bold ml-2 leading-10;
