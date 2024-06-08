@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* <uniquifier>: Use a unique and descriptive class name
+ <weight>: Use a value from 100 to 900 */
+
+.inter-font {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+}
+
+html {
+  background-color: #e9efff;
+  font-size: 16px;
+}
+
+/*Welcome Page*/
+.welcome {
+  @apply flex flex-col justify-center items-center content-center;
+}
+/* .transform {
+  translate: (50%, -50%);
+} */
+.welcome__text {
+  @apply absolute top-[3.5rem] text-[2rem] max-sm:top-[3.5rem] flex justify-center items-center text-center text-[#2B5587] md:absolute md:top-[9rem];
+}
+.welcome__img {
+  @apply relative top-[5rem] ml-[2rem] max-[480px]:relative max-[480px]:top-[5rem] md:relative md:top-[12rem];
+}
+.welcome__links {
+  @apply flex flex-col absolute bottom-[10rem]  content-between justify-between max-[640px]:absolute max-[640px]:bottom-[7rem];
+}
+.sign_in {
+  @apply bg-white text-2xl text-[#2B5587] px-[0.4rem] my-[0.8rem] w-[285px] rounded-tl-[50px] rounded-tr-none rounded-br-[50px] rounded-bl-none h-[56px];
+}
+.curve {
+  @apply bg-[#2B5587] h-[485px] w-[365px] rounded-tr-[280px] -z-10 absolute bottom-0 max-[480px]:w-full md:w-[20rem] md:h-[40rem];
+}
+
+/*Register Page*/
+.back__arrow {
+  @apply cursor-pointer text-[3rem] font-bold text-center relative left-1 w-[3rem];
+}
+.register {
+  @apply flex flex-col justify-center items-center content-center;
+}
+.register__form {
+  @apply flex flex-col translate-x-0 translate-y-0;
+}
+.register__form input {
+  @apply m-3 p-2 w-[18rem] rounded-tl-[50px] rounded-tr-none rounded-br-[50px] rounded-bl-none h-[56px];
+}
+
+.register__img {
+  @apply relative top-[4rem];
+}
+.register__text {
+  @apply absolute text-[1.5rem] max-sm:top-[3.5rem] flex justify-center items-center text-center text-[#2B5587] md:absolute md:top-[9rem];
+}
+.register__submit {
+  @apply text-white text-[1.5rem] text-center bg-[#FE705A] rounded-[50px_0px_50px_0px] w-[14rem] h-[3rem] ml-[3rem] mt-[1rem] bg-[url("/images/Login.png")] bg-[10rem] bg-no-repeat;
+}
+.curve__register {
+  @apply bg-[#2B5587] h-[32rem] w-[22rem] rounded-tr-[17.5rem] -z-10 absolute top-[18rem] max-[480px]:w-full md:w-[20rem] md:h-[40rem];
+}
+#name {
+  @apply bg-[url("/images/Name.png")] bg-[30px_20px] bg-no-repeat p-[12px_20px_12px_70px];
+}
+#job {
+  @apply bg-[url("/images/Job.png")] bg-[30px_20px] bg-no-repeat p-[12px_20px_12px_70px];
+}
+#email {
+  @apply bg-[url("/images/Email.png")] bg-[30px_20px] bg-no-repeat p-[12px_20px_12px_70px];
+}
+#id {
+  @apply bg-[url("/images/BusinessCard.png")] bg-[30px_20px] bg-no-repeat p-[12px_20px_12px_70px];
+}
+.register__foot {
+  @apply text-white font-[1rem] mt-2 flex justify-center items-center text-center;
+}
+.login__foot {
+  @apply text-[#FE705A] pl-2;
+}
+
+/*Login Page*/
+.login {
+  @apply flex flex-col justify-center items-center content-center;
+}
+.login__text {
+  @apply text-[3rem] text-[#2B5587] font-extrabold;
+}
+.login__form {
+  @apply mt-[10rem];
+}
+.login__form input {
+  @apply m-3 p-2 w-[20rem] rounded-[50px_0px_50px_0px] h-[3rem] pl-[8rem] ml-[2rem] outline-none;
+}
+.login__form span {
+  @apply bg-[#00A8FF] rounded-[50px_0px_50px_0px] text-white;
+}
+.span__email {
+  @apply inline-block w-[8rem] h-[3rem]  pt-2 pl-7 z-10 absolute -left-1 mt-[0.8rem] ml-[2rem] shadow-[6px_0px_rgba(0,0,0,0.3)];
+}
+.span__id {
+  @apply inline-block w-[8rem] h-[3rem]  pt-2 pl-10 z-10 absolute -left-1 mt-[0.8rem] ml-[2rem] shadow-[6px_0px_rgba(0,0,0,0.3)];
+}
+.curve__login {
+  @apply bg-[#2B5587] h-[32rem] w-[22rem] rounded-tr-[7rem] -z-10 absolute top-[18rem] max-[480px]:w-full md:w-[20rem] md:h-[40rem];
+}
+.login__submit {
+  @apply text-white text-[1.5rem] text-center bg-[#FE705A] rounded-[50px_0px_50px_0px] w-[14rem] h-[3rem] ml-[5rem] mt-[1rem] bg-[url("/images/Login.png")] bg-[10rem] bg-no-repeat;
+}
+.signin__foot {
+  @apply text-white font-[1rem] flex justify-center items-center text-center mt-[5rem];
+}
+
+/*Dashboard*/
+.dash__main {
+  @apply flex flex-col justify-center content-center mt-[5rem];
+}
+.dash__btn {
+  @apply text-white text-[1.5rem] text-center bg-[#FE705A] rounded-[50px_0px_50px_0px] w-[20rem] h-[3rem] bg-[url("/images/Login.png")] bg-[15rem] bg-no-repeat mt-[2rem];
+}
+.dash__text {
+  @apply text-white text-[1.5rem] font-bold ml-2 leading-10;
+}
+
+/*Check In / Out*/
+.check__main {
+  @apply flex flex-col justify-center content-center items-center mt-[7rem];
+}
+.check__main > p {
+  @apply text-white font-bold text-[1.5rem];
+}
+.check__text {
+  @apply mt-[2rem] ml-[2.5rem];
+}
+.saved__text {
+  @apply inline-block text-center ml-[5rem];
+}
+
+/*Email Verify*/
+.email__text {
+  @apply text-white mt-[7rem] text-[1.5rem];
+}
+.verify__btn {
+  @apply mt-[2rem];
+}
+
+/*Password Reset*/
+.form__reset {
+  @apply flex flex-col justify-center items-center;
+}
+.inputContainer {
+  @apply flex flex-row justify-center items-center gap-2;
+}
+.inputContainer input {
+  @apply w-[3.5rem] h-[3rem] text-center outline-none text-[1.5rem] focus:outline-black mt-[1rem];
+}
+.head__reset {
+  @apply text-[#2B5587] text-[1.5rem]  font-[700];
+}
+.text__reset {
+  @apply text-[#00A8FF] text-[1rem] font-[600] ml-[2rem] mr-[2rem] text-center leading-5;
+}
+.timer__reset {
+  @apply text-[#6ACB85] text-[1.25rem] mt-[1rem];
+}
+.curve__reset {
+  @apply bg-[#2B5587] h-[30rem] w-[22rem] rounded-tr-[10rem] -z-10 absolute top-[18rem] max-[480px]:w-full md:w-[20rem] md:h-[40rem];
+}
+.verify {
+  @apply text-[1.5rem] text-[#6ACB85] bg-white text-2xl px-[0.4rem] mt-[9rem] w-[20rem] h-[56px] rounded-2xl;
+}

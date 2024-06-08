@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/images/raoatech.png" type="image/x-icon" />
+    <link rel="stylesheet" href="tailwind.css" />
+    <title>RAOATECH LOGIN</title>
+  </head>
+  <body>
+    <nav>
+      <a href="register.html"><button class="back__arrow">&larr;</button></a>
+    </nav>
+    <section class="login">
+      <div class="login__img -mt-[2rem]">
+        <img src="/images/raoatech.png" alt="Raoateh Logo" />
+      </div>
+      <h1 class="login__text inter-font">RAOATECH</h1>
+
+      <form method="post" class="login__form">
+        <div class="input-group">
+          <input type="email" name="email" placeholder="Input your Email" />
+          <span class="span__email">User Email</span>
+        </div>
+        <div class="input-group">
+          <input type="text" name="id" placeholder="Input your ID" />
+          <span class="span__id">User ID</span>
+        </div>
+        <button type="submit" class="login__submit inter-font">Login</button>
+      </form>
+      <p class="signin__foot inter-font">
+        Don't have an account?
+        <span class="login__foot"><a href="register.html">Signup</a></span>
+      </p>
+      <div class="curve__login"></div>
+    </section>
+  </body>
+</html>

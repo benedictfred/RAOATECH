@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/images/raoatech.png" type="image/x-icon" />
+    <link rel="stylesheet" href="tailwind.css" />
+    <script defer src="main.js"></script>
+    <title>RESET PASSWORD</title>
+  </head>
+  <body>
+    <nav>
+      <a href="verify.html"><button class="back__arrow">&larr;</button></a>
+    </nav>
+    <form class="form__reset">
+      <h2 class="head__reset inter-font">Enter Verification Code</h2>
+      <p class="text__reset inter-font">
+        A message with four digit code has been sent to your email address
+        ending in *******kl@gmail.com
+      </p>
+      <div class="inputContainer">
+        <input
+          type="text"
+          name="code"
+          maxlength="1"
+          class="code-input"
+          required
+        />
+        <input
+          type="text"
+          name="code"
+          maxlength="1"
+          class="code-input"
+          required
+        />
+        <input
+          type="text"
+          name="code"
+          maxlength="1"
+          class="code-input"
+          required
+        />
+        <input
+          type="text"
+          name="code"
+          maxlength="1"
+          class="code-input"
+          required
+        />
+      </div>
+      <a href="" class="timer__reset inter-font">
+        Resend code <span class="timer">60s</span>
+      </a>
+      <button type="submit" class="verify inter-font">
+        Verify Email Address
+      </button>
+    </form>
+    <div class="curve__reset"></div>
+  </body>
+</html>
