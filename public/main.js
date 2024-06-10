@@ -1,4 +1,30 @@
 const inputElements = [...document.querySelectorAll("input.code-input")];
+const fullName = document.getElementById("name");
+const job = document.getElementById("job");
+const email = document.getElementById("email");
+const id = document.getElementById("id");
+const register__btn = document.querySelector(".register__submit");
+const formRegister = document.querySelector(".register__form");
+const emailText = document.querySelector(".email__actual");
+const loginEmail = document.querySelector(".login__email");
+const loginId = document.querySelector(".login__id");
+const formLogin = document.querySelector(".login__form");
+const errorMessage = document.getElementById("error-message");
+let formData = {};
+const data = [];
+const resendLink = document.querySelector(".timer__reset");
+const timerElement = document.querySelector(".timer");
+let countdown = 60;
+let timerInterval;
+function showError() {
+  errorMessage.classList.remove("hidden");
+  errorMessage.classList.add("slide-in");
+}
+
+function hideError() {
+  errorMessage.classList.remove("slide-in");
+  errorMessage.classList.add("hidden");
+}
 
 inputElements.forEach((ele, index) => {
   ele.addEventListener("keydown", (e) => {
@@ -38,10 +64,6 @@ function onSubmit(e) {
   console.log(code);
 }
 
-const resendLink = document.querySelector(".timer__reset");
-const timerElement = document.querySelector(".timer");
-let countdown = 5;
-
 const updateTimer = () => {
   if (countdown > 0) {
     countdown--;
@@ -55,25 +77,80 @@ const updateTimer = () => {
   }
 };
 
-resendLink.setAttribute("disabled", "true");
-resendLink.removeAttribute("href");
-timerElement.style.opacity = 1;
-resendLink.style.opacity = 0.5;
-timerElement.textContent = `${countdown}s`;
+if (resendLink && timerElement) {
+  resendLink.setAttribute("disabled", "true");
+  resendLink.removeAttribute("href");
+  timerElement.style.opacity = 1;
+  resendLink.style.opacity = 0.5;
+  timerElement.textContent = `${countdown}s`;
 
-const timerInterval = setInterval(updateTimer, 1000);
+  timerInterval = setInterval(updateTimer, 1000);
 
-resendLink.addEventListener("click", (e) => {
-  if (resendLink.hasAttribute("disabled")) {
-    e.preventDefault(); // Prevent default action if the link is disabled
-  } else {
-    // Logic to resend the code
-    console.log("Code resent");
-    // Restart the countdown
-    countdown = 60;
-    resendLink.setAttribute("disabled", "true");
-    resendLink.removeAttribute("href");
-    timerElement.textContent = `${countdown}s`;
-    setInterval(updateTimer, 1000);
+  resendLink.addEventListener("click", (e) => {
+    if (resendLink.hasAttribute("disabled")) {
+      e.preventDefault();
+    } else {
+      countdown = 60;
+      resendLink.setAttribute("disabled", "true");
+      resendLink.removeAttribute("href");
+      timerElement.style.opacity = 1;
+      resendLink.style.opacity = 0.5;
+      timerElement.textContent = `${countdown}s`;
+      setInterval(updateTimer, 1000);
+    }
+  });
+}
+
+if (formRegister) {
+  formRegister.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (fullName.value && job.value && email.value && id.value) {
+      formData = {
+        fullName: fullName.value,
+        job: job.value,
+        email: email.value,
+        id: id.value,
+      };
+      localStorage.setItem("formData", JSON.stringify(formData));
+      window.location.href = "verify.html";
+    }
+  });
+}
+
+if (formLogin) {
+  formLogin.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const storedData = JSON.parse(localStorage.getItem("formData"));
+    if (loginEmail && loginId)
+      if (
+        loginEmail.value === storedData.email &&
+        loginId.value === storedData.id
+      ) {
+        window.location.href = "dashboard.html";
+      } else {
+        showError();
+        setTimeout(() => hideError(), 2000);
+      }
+    else {
+      loginEmail.setAttribute("required", "true");
+      loginId.setAttribute("required", "true");
+    }
+  });
+}
+
+const verifyBtn = document.querySelector(".verify__btn");
+if (verifyBtn) {
+  verifyBtn.addEventListener("click", function () {
+    window.location.href = "reset.html";
+  });
+}
+
+if (emailText) {
+  const storedFormData = localStorage.getItem("formData");
+  if (storedFormData) {
+    const formData = JSON.parse(storedFormData);
+    const [padded, others] = formData.email.split("@");
+    const masked = "*".repeat(4) + padded.slice(3) + "@" + others;
+    emailText.textContent = masked;
   }
-});
+}

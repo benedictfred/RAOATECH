@@ -22,9 +22,7 @@ html {
 .welcome {
   @apply flex flex-col justify-center items-center content-center;
 }
-/* .transform {
-  translate: (50%, -50%);
-} */
+
 .welcome__text {
   @apply absolute top-[3.5rem] text-[2rem] max-sm:top-[3.5rem] flex justify-center items-center text-center text-[#2B5587] md:absolute md:top-[9rem];
 }
@@ -175,4 +173,24 @@ html {
 }
 .verify {
   @apply text-[1.5rem] text-[#6ACB85] bg-white text-2xl px-[0.4rem] mt-[9rem] w-[20rem] h-[56px] rounded-2xl;
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+#error-message {
+  transition: opacity 0.5s ease;
+}
+
+#error-message.slide-in {
+  animation: slideInFromRight 0.5s forwards;
+  display: block;
 }

@@ -9,7 +9,6 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="tailwind.css" />
-    <script defer src="main.js"></script>
     <title>RESET PASSWORD</title>
   </head>
   <body>
@@ -20,7 +19,8 @@
       <h2 class="head__reset inter-font">Enter Verification Code</h2>
       <p class="text__reset inter-font">
         A message with four digit code has been sent to your email address
-        ending in *******kl@gmail.com
+        ending in
+        <span class="email__actual">*******kl@gmail.com</span>
       </p>
       <div class="inputContainer">
         <input
@@ -60,5 +60,7 @@
       </button>
     </form>
     <div class="curve__reset"></div>
+
+    <script src="main.js"></script>
   </body>
 </html>

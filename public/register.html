@@ -26,12 +26,42 @@
       </div>
 
       <form class="register__form">
-        <input type="text" name="fullname" id="name" placeholder="Full Name" />
-        <input type="text" name="job" id="job" placeholder="Job Role" />
-        <input type="email" name="email" id="email" placeholder="Email" />
-        <input type="text" name="id" id="id" placeholder="ID" />
+        <input
+          type="text"
+          name="fullname"
+          id="name"
+          placeholder="Full Name"
+          value="John Doe"
+          required
+        />
+        <input
+          type="text"
+          name="job"
+          id="job"
+          placeholder="Job Role"
+          value="Test Job"
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email"
+          value="test@gmail.com"
+          required
+        />
+        <input
+          type="text"
+          name="id"
+          id="id"
+          placeholder="ID"
+          value="test id"
+          required
+        />
         <a href="verify.html"
-          ><button class="register__submit inter-font">Register</button></a
+          ><button type="submit" class="register__submit inter-font">
+            Register
+          </button></a
         >
 
         <p class="register__foot inter-font">
@@ -42,5 +72,7 @@
 
       <div class="curve__register"></div>
     </section>
+
+    <script src="main.js"></script>
   </body>
 </html>
