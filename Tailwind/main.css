@@ -4,8 +4,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
-html,
-body {
+html {
   background-color: #e9efff;
   font-size: 16px;
   overflow-x: hidden;
@@ -114,7 +113,7 @@ body {
   @apply text-white text-[1.5rem] bg-[#FE705A] rounded-[1.8rem] w-[15rem] h-[4rem] pr-3 ml-[3rem] mt-[1rem] bg-[url("/images/Login-small.png")] bg-[10.5rem] bg-no-repeat pb-1;
 }
 .curve__register {
-  @apply bg-[#2B5587] h-[40rem] w-[30rem] rounded-tr-[22rem] absolute top-[18rem];
+  @apply bg-[#2B5587] h-[40rem] w-[30rem] rounded-tr-[22rem] -z-10 absolute top-[18rem];
 }
 #name {
   @apply bg-[url("../images/Name.png")] bg-[30px_20px] bg-no-repeat p-[12px_20px_12px_70px];
