@@ -16,16 +16,16 @@
       <a href="../index.html"><button class="back__arrow">&larr;</button></a>
     </nav>
     <section class="register">
-      <h1 class="register__text inter-font">
-        Let's help you get <br />
-        started
-      </h1>
-
-      <div class="register__img">
-        <img src="../images/register.png" alt="Survey Filling" />
+      <div class="register__top">
+        <img src="../images/survey.png" alt="Survey Filling" />
+        <h1 class="register__text outfit-bold">Let's help you get started</h1>
       </div>
 
       <form class="register__form">
+        <p class="outfit-bold text-white text-[1.25rem]">Kindly Register</p>
+        <p class="outfit-bold text-[#F85050] text-[0.8rem] ml-[9rem]">
+          Kindly fill out the form
+        </p>
         <input
           type="text"
           name="fullname"
@@ -47,7 +47,7 @@
           name="email"
           id="email"
           placeholder="Email"
-          value="test@gmail.com"
+          value="johndoe@gmail.com"
           required
         />
         <input
@@ -59,17 +59,21 @@
           required
         />
         <a href="verify.html"
-          ><button type="submit" class="register__submit inter-font">
+          ><button type="submit" class="register__submit outfit-bold">
             Register
           </button></a
         >
 
-        <p class="register__foot inter-font">
+        <p class="register__foot outfit-medium">
           Already have an account?
           <span class="login__foot"><a href="login.html">Login</a></span>
         </p>
       </form>
-
+      <p
+        class="text-white text-center mt-[3rem] text-[0.75rem] outfit-semibold z-10"
+      >
+        POWERED BY RAOATECH
+      </p>
       <div class="curve__register"></div>
     </section>
 

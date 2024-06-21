@@ -2,20 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-/* <uniquifier>: Use a unique and descriptive class name
- <weight>: Use a value from 100 to 900 */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
-.inter-font {
-  font-family: "Inter", sans-serif;
+html,
+body {
+  background-color: #e9efff;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+.outfit-thin {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
+.outfit-extralight {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+.outfit-light {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+.outfit-regular {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.outfit-medium {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+.outfit-semibold {
+  font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
   font-weight: 600;
   font-style: normal;
-  font-variation-settings: "slnt" 0;
 }
-
-html {
-  background-color: #e9efff;
-  font-size: 16px;
+.outfit-bold {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+.outfit-extrabold {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+.outfit-black {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
 }
 
 /*Welcome Page*/
@@ -24,46 +72,49 @@ html {
 }
 
 .welcome__text {
-  @apply absolute top-[3.5rem] text-[2rem] max-sm:top-[3.5rem] flex justify-center items-center text-center text-[#2B5587] md:absolute md:top-[9rem];
+  @apply absolute top-[3rem] text-[3rem] flex justify-center items-center text-center text-[#2B5587];
 }
 .welcome__img {
-  @apply relative top-[5rem] ml-[2rem] max-[480px]:relative max-[480px]:top-[5rem] md:relative md:top-[12rem];
+  @apply relative top-[5rem] ml-[2rem] mt-[5rem];
 }
 .welcome__links {
-  @apply flex flex-col absolute bottom-[10rem]  content-between justify-between max-[640px]:absolute max-[640px]:bottom-[7rem];
+  @apply flex flex-col content-between justify-between absolute bottom-[2rem] text-[1.3rem] tracking-wider;
 }
 .sign_in {
-  @apply bg-white text-2xl text-[#2B5587] px-[0.4rem] my-[0.8rem] w-[285px] rounded-tl-[50px] rounded-tr-none rounded-br-[50px] rounded-bl-none h-[56px];
+  @apply bg-[#FE705A] text-white text-xl px-[0.4rem] my-[0.8rem] w-[285px] rounded-[1.8rem] h-[56px];
 }
 .curve {
-  @apply bg-[#2B5587] h-[485px] w-[365px] rounded-tr-[280px] -z-10 absolute bottom-0 max-[480px]:w-full md:w-[20rem] md:h-[40rem];
+  @apply bg-[#2B5587] h-[485px] w-[500px] rounded-tr-[15rem] -z-10 absolute bottom-0;
 }
 
 /*Register Page*/
 .back__arrow {
   @apply cursor-pointer text-[3rem] font-bold text-center relative left-1 w-[3rem];
 }
-.register {
-  @apply flex flex-col justify-center items-center content-center;
-}
+/* .register {
+  @apply relative;
+} */
 .register__form {
-  @apply flex flex-col translate-x-0 translate-y-0;
+  @apply flex flex-col mt-[5rem] ml-2 relative z-10;
 }
 .register__form input {
-  @apply m-3 p-2 w-[18rem] rounded-tl-[50px] rounded-tr-none rounded-br-[50px] rounded-bl-none h-[56px];
+  @apply m-3 p-2 w-[20rem] rounded-tl-[50px] rounded-tr-none rounded-br-[50px] rounded-bl-none h-[56px];
 }
 
-.register__img {
-  @apply relative top-[4rem];
+.register__top {
+  @apply flex flex-row justify-around mt-[3rem] ml-4;
 }
+/* .register__img {
+  @apply relative top-[4rem];
+} */
 .register__text {
-  @apply absolute text-[1.5rem] max-sm:top-[3.5rem] flex justify-center items-center text-center text-[#2B5587] md:absolute md:top-[9rem];
+  @apply text-[2rem] text-[#2B5587] -mt-[2rem] -rotate-6;
 }
 .register__submit {
-  @apply text-white text-[1.5rem] text-center bg-[#FE705A] rounded-[50px_0px_50px_0px] w-[14rem] h-[3rem] ml-[3rem] mt-[1rem] bg-[url("/images/Login.png")] bg-[10rem] bg-no-repeat;
+  @apply text-white text-[1.5rem] bg-[#FE705A] rounded-[1.8rem] w-[15rem] h-[4rem] pr-3 ml-[3rem] mt-[1rem] bg-[url("/images/Login-small.png")] bg-[10.5rem] bg-no-repeat pb-1;
 }
 .curve__register {
-  @apply bg-[#2B5587] h-[32rem] w-[22rem] rounded-tr-[17.5rem] -z-10 absolute top-[18rem] max-[480px]:w-full md:w-[20rem] md:h-[40rem];
+  @apply bg-[#2B5587] h-[40rem] w-[30rem] rounded-tr-[22rem] absolute top-[18rem];
 }
 #name {
   @apply bg-[url("../images/Name.png")] bg-[30px_20px] bg-no-repeat p-[12px_20px_12px_70px];
@@ -175,6 +226,7 @@ html {
   @apply text-[1.5rem] text-[#6ACB85] bg-white text-2xl px-[0.4rem] mt-[9rem] w-[20rem] h-[56px] rounded-2xl;
 }
 
+/*Error message*/
 @keyframes slideInFromRight {
   from {
     transform: translateX(100%);
@@ -193,4 +245,20 @@ html {
 #error-message.slide-in {
   animation: slideInFromRight 0.5s forwards;
   display: block;
+}
+
+/*Loader*/
+.loader {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid rgb(255, 255, 255, 0.2);
+  border-top-color: transparent;
+  animation: rot1 1.2s linear infinite;
+}
+
+@keyframes rot1 {
+  to {
+    transform: rotate(360deg);
+  }
 }

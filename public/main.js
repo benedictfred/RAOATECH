@@ -14,143 +14,149 @@ let formData = {};
 const data = [];
 const resendLink = document.querySelector(".timer__reset");
 const timerElement = document.querySelector(".timer");
+const loader = document.querySelector(".preloader");
+const welcome = document.querySelector(".welcome");
 let countdown = 60;
 let timerInterval;
-function showError() {
-  errorMessage.classList.remove("hidden");
-  errorMessage.classList.add("slide-in");
-}
 
-function hideError() {
-  errorMessage.classList.remove("slide-in");
-  errorMessage.classList.add("hidden");
-}
-
-inputElements.forEach((ele, index) => {
-  ele.addEventListener("keydown", (e) => {
-    if (e.keyCode === 8 && e.target.value === "") {
-      inputElements[Math.max(0, index - 1)].focus();
-    }
-  });
-
-  ele.addEventListener("input", (e) => {
-    const [first, ...rest] = e.target.value;
-    e.target.value = first ?? "";
-    const lastInputBox = index === inputElements.length - 1;
-    const didInsertContent = first !== undefined;
-    if (didInsertContent && !lastInputBox) {
-      inputElements[index + 1].focus();
-      inputElements[index + 1].value = rest.join("");
-      inputElements[index + 1].dispatchEvent(new Event("input"));
-    }
-  });
-
-  ele.addEventListener("paste", (e) => {
-    const paste = (e.clipboardData || window.clipboardData).getData("text");
-    const pasteArray = paste.split("");
-    pasteArray.forEach((char, pasteIndex) => {
-      if (index + pasteIndex < inputElements.length) {
-        inputElements[index + pasteIndex].value = char;
-        inputElements[index + pasteIndex].dispatchEvent(new Event("input"));
-      }
-    });
-    e.preventDefault();
-  });
+window.addEventListener("load", function () {
+  loader.classList.add("hidden");
 });
+// function showError() {
+//   errorMessage.classList.remove("hidden");
+//   errorMessage.classList.add("slide-in");
+// }
 
-function onSubmit(e) {
-  e.preventDefault();
-  const code = inputElements.map(({ value }) => value).join("");
-  console.log(code);
-}
+// function hideError() {
+//   errorMessage.classList.remove("slide-in");
+//   errorMessage.classList.add("hidden");
+// }
 
-const updateTimer = () => {
-  if (countdown > 0) {
-    countdown--;
-    timerElement.textContent = `${countdown}s`;
-  } else {
-    clearInterval(timerInterval);
-    timerElement.textContent = " ";
-    resendLink.removeAttribute("disabled");
-    resendLink.href = "#";
-    resendLink.style.opacity = 1;
-  }
-};
+// inputElements.forEach((ele, index) => {
+//   ele.addEventListener("keydown", (e) => {
+//     if (e.keyCode === 8 && e.target.value === "") {
+//       inputElements[Math.max(0, index - 1)].focus();
+//     }
+//   });
 
-if (resendLink && timerElement) {
-  resendLink.setAttribute("disabled", "true");
-  resendLink.removeAttribute("href");
-  timerElement.style.opacity = 1;
-  resendLink.style.opacity = 0.5;
-  timerElement.textContent = `${countdown}s`;
+//   ele.addEventListener("input", (e) => {
+//     const [first, ...rest] = e.target.value;
+//     e.target.value = first ?? "";
+//     const lastInputBox = index === inputElements.length - 1;
+//     const didInsertContent = first !== undefined;
+//     if (didInsertContent && !lastInputBox) {
+//       inputElements[index + 1].focus();
+//       inputElements[index + 1].value = rest.join("");
+//       inputElements[index + 1].dispatchEvent(new Event("input"));
+//     }
+//   });
 
-  timerInterval = setInterval(updateTimer, 1000);
+//   ele.addEventListener("paste", (e) => {
+//     const paste = (e.clipboardData || window.clipboardData).getData("text");
+//     const pasteArray = paste.split("");
+//     pasteArray.forEach((char, pasteIndex) => {
+//       if (index + pasteIndex < inputElements.length) {
+//         inputElements[index + pasteIndex].value = char;
+//         inputElements[index + pasteIndex].dispatchEvent(new Event("input"));
+//       }
+//     });
+//     e.preventDefault();
+//   });
+// });
 
-  resendLink.addEventListener("click", (e) => {
-    if (resendLink.hasAttribute("disabled")) {
-      e.preventDefault();
-    } else {
-      countdown = 60;
-      resendLink.setAttribute("disabled", "true");
-      resendLink.removeAttribute("href");
-      timerElement.style.opacity = 1;
-      resendLink.style.opacity = 0.5;
-      timerElement.textContent = `${countdown}s`;
-      setInterval(updateTimer, 1000);
-    }
-  });
-}
+// function onSubmit(e) {
+//   e.preventDefault();
+//   const code = inputElements.map(({ value }) => value).join("");
+//   console.log(code);
+// }
 
-if (formRegister) {
-  formRegister.addEventListener("submit", function (e) {
-    e.preventDefault();
-    if (fullName.value && job.value && email.value && id.value) {
-      formData = {
-        fullName: fullName.value,
-        job: job.value,
-        email: email.value,
-        id: id.value,
-      };
-      localStorage.setItem("formData", JSON.stringify(formData));
-      window.location.href = "verify.html";
-    }
-  });
-}
+// const updateTimer = () => {
+//   if (countdown > 0) {
+//     countdown--;
+//     timerElement.textContent = `${countdown}s`;
+//   } else {
+//     clearInterval(timerInterval);
+//     timerElement.textContent = " ";
+//     resendLink.removeAttribute("disabled");
+//     resendLink.href = "#";
+//     resendLink.style.opacity = 1;
+//   }
+// };
 
-if (formLogin) {
-  formLogin.addEventListener("submit", function (e) {
-    e.preventDefault();
-    const storedData = JSON.parse(localStorage.getItem("formData"));
-    if (loginEmail && loginId)
-      if (
-        loginEmail.value === storedData.email &&
-        loginId.value === storedData.id
-      ) {
-        window.location.href = "dashboard.html";
-      } else {
-        showError();
-        setTimeout(() => hideError(), 2000);
-      }
-    else {
-      loginEmail.setAttribute("required", "true");
-      loginId.setAttribute("required", "true");
-    }
-  });
-}
+// if (resendLink && timerElement) {
+//   resendLink.setAttribute("disabled", "true");
+//   resendLink.removeAttribute("href");
+//   timerElement.style.opacity = 1;
+//   resendLink.style.opacity = 0.5;
+//   timerElement.textContent = `${countdown}s`;
 
-const verifyBtn = document.querySelector(".verify__btn");
-if (verifyBtn) {
-  verifyBtn.addEventListener("click", function () {
-    window.location.href = "reset.html";
-  });
-}
+//   timerInterval = setInterval(updateTimer, 1000);
 
-if (emailText) {
-  const storedFormData = localStorage.getItem("formData");
-  if (storedFormData) {
-    const formData = JSON.parse(storedFormData);
-    const [padded, others] = formData.email.split("@");
-    const masked = "*".repeat(4) + padded.slice(3) + "@" + others;
-    emailText.textContent = masked;
-  }
-}
+//   resendLink.addEventListener("click", (e) => {
+//     if (resendLink.hasAttribute("disabled")) {
+//       e.preventDefault();
+//     } else {
+//       countdown = 60;
+//       resendLink.setAttribute("disabled", "true");
+//       resendLink.removeAttribute("href");
+//       timerElement.style.opacity = 1;
+//       resendLink.style.opacity = 0.5;
+//       timerElement.textContent = `${countdown}s`;
+//       setInterval(updateTimer, 1000);
+//     }
+//   });
+// }
+
+// if (formRegister) {
+//   formRegister.addEventListener("submit", function (e) {
+//     e.preventDefault();
+//     if (fullName.value && job.value && email.value && id.value) {
+//       formData = {
+//         fullName: fullName.value,
+//         job: job.value,
+//         email: email.value,
+//         id: id.value,
+//       };
+//       localStorage.setItem("formData", JSON.stringify(formData));
+//       window.location.href = "verify.html";
+//     }
+//   });
+// }
+
+// if (formLogin) {
+//   formLogin.addEventListener("submit", function (e) {
+//     e.preventDefault();
+//     const storedData = JSON.parse(localStorage.getItem("formData"));
+//     if (loginEmail && loginId)
+//       if (
+//         loginEmail.value === storedData.email &&
+//         loginId.value === storedData.id
+//       ) {
+//         window.location.href = "dashboard.html";
+//       } else {
+//         showError();
+//         setTimeout(() => hideError(), 2000);
+//       }
+//     else {
+//       loginEmail.setAttribute("required", "true");
+//       loginId.setAttribute("required", "true");
+//     }
+//   });
+// }
+
+// const verifyBtn = document.querySelector(".verify__btn");
+// if (verifyBtn) {
+//   verifyBtn.addEventListener("click", function () {
+//     window.location.href = "reset.html";
+//   });
+// }
+
+// if (emailText) {
+//   const storedFormData = localStorage.getItem("formData");
+//   if (storedFormData) {
+//     const formData = JSON.parse(storedFormData);
+//     const [padded, others] = formData.email.split("@");
+//     const masked = "*".repeat(4) + padded.slice(3) + "@" + others;
+//     emailText.textContent = masked;
+//   }
+// }
