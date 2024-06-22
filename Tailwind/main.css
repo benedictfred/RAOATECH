@@ -7,7 +7,6 @@
 html {
   background-color: #e9efff;
   font-size: 16px;
-  overflow-x: hidden;
 }
 
 .outfit-thin {
@@ -83,7 +82,7 @@ html {
   @apply bg-[#FE705A] text-white text-[1.25rem] px-[0.4rem] my-[0.8rem] w-[285px] rounded-[1.8rem] h-[56px];
 }
 .curve {
-  @apply bg-[#2B5587] h-[420px] w-full rounded-tr-[12rem] -z-10 absolute bottom-0;
+  @apply bg-[#2B5587] h-[26rem] w-[24.5rem] rounded-tr-[12rem] -z-10 absolute bottom-0;
 }
 
 /*Register Page*/
@@ -107,13 +106,13 @@ html {
   @apply relative top-[4rem];
 } */
 .register__text {
-  @apply text-[2rem] text-[#2B5587] -mt-[2rem] -rotate-6;
+  @apply text-[2rem] text-[#2B5587] -mt-[2rem]  overflow-hidden;
 }
 .register__submit {
   @apply text-white text-[1.5rem] bg-[#FE705A] rounded-[1.8rem] w-[15rem] h-[4rem] pr-3 ml-[3rem] mt-[1rem] bg-[url("../images/Login-small.png")] bg-[10.5rem] bg-no-repeat pb-1;
 }
 .curve__register {
-  @apply bg-[#2B5587] h-[40rem] w-full rounded-tr-[13rem] -z-10 absolute top-[18rem];
+  @apply bg-[#2B5587] h-[40rem] w-[23rem] rounded-tr-[13rem] -z-10 absolute top-[18rem];
 }
 #name {
   @apply bg-[url("../images/Name.png")] bg-[30px_20px] bg-no-repeat p-[12px_20px_12px_70px];
