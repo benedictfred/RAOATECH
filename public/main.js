@@ -20,7 +20,7 @@ let countdown = 60;
 let timerInterval;
 
 window.addEventListener("load", function () {
-  loader.classList.add("hidden");
+  this.setTimeout(() => loader.classList.add("hidden"), 10000);
 });
 // function showError() {
 //   errorMessage.classList.remove("hidden");

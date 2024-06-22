@@ -7,6 +7,7 @@
 html {
   background-color: #e9efff;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 .outfit-thin {
@@ -70,10 +71,10 @@ html {
 }
 
 .welcome__text {
-  @apply absolute top-[3rem] text-[3rem] flex justify-center items-center text-center text-[#2B5587];
+  @apply absolute top-[2rem] text-[3rem] flex justify-center items-center text-center text-[#2B5587];
 }
 .welcome__img {
-  @apply relative top-[5rem] ml-[2rem] mt-[5rem];
+  @apply relative top-[5rem] ml-[2rem] mt-[2.5rem];
 }
 .welcome__links {
   @apply flex flex-col content-between justify-between absolute bottom-[2rem];
@@ -82,7 +83,7 @@ html {
   @apply bg-[#FE705A] text-white text-[1.25rem] px-[0.4rem] my-[0.8rem] w-[285px] rounded-[1.8rem] h-[56px];
 }
 .curve {
-  @apply bg-[#2B5587] h-[26rem] w-[24.5rem] rounded-tr-[12rem] -z-10 absolute bottom-0;
+  @apply bg-[#2B5587] h-[30rem] w-[24.5rem] rounded-tr-[12rem] -z-10 absolute bottom-0;
 }
 
 /*Register Page*/
@@ -90,7 +91,7 @@ html {
   @apply cursor-pointer text-[3rem] font-bold text-center relative left-1 w-[3rem];
 }
 /* .register {
-  @apply relative;
+  @apply overflow-x-hidden;
 } */
 .register__form {
   @apply flex flex-col mt-[5rem] ml-2 relative z-10;
@@ -100,19 +101,19 @@ html {
 }
 
 .register__top {
-  @apply flex flex-row justify-around mt-[3rem] ml-4;
+  @apply flex flex-row justify-evenly mt-[3rem] ml-4;
 }
 /* .register__img {
   @apply relative top-[4rem];
 } */
 .register__text {
-  @apply text-[2rem] text-[#2B5587] -mt-[2rem]  overflow-hidden;
+  @apply text-[2rem] text-[#2B5587] -mt-[2rem] -rotate-6;
 }
 .register__submit {
   @apply text-white text-[1.5rem] bg-[#FE705A] rounded-[1.8rem] w-[15rem] h-[4rem] pr-3 ml-[3rem] mt-[1rem] bg-[url("../images/Login-small.png")] bg-[10.5rem] bg-no-repeat pb-1;
 }
 .curve__register {
-  @apply bg-[#2B5587] h-[40rem] w-[23rem] rounded-tr-[13rem] -z-10 absolute top-[18rem];
+  @apply bg-[#2B5587] h-[40rem] w-[25rem] rounded-tr-[13rem] -z-10 absolute top-[18rem];
 }
 #name {
   @apply bg-[url("../images/Name.png")] bg-[30px_20px] bg-no-repeat p-[12px_20px_12px_70px];
