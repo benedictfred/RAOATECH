@@ -77,13 +77,13 @@ html {
   @apply relative top-[5rem] ml-[2rem] mt-[5rem];
 }
 .welcome__links {
-  @apply flex flex-col content-between justify-between absolute bottom-[2rem] text-[1.3rem] tracking-wider;
+  @apply flex flex-col content-between justify-between absolute bottom-[2rem];
 }
 .sign_in {
-  @apply bg-[#FE705A] text-white text-xl px-[0.4rem] my-[0.8rem] w-[285px] rounded-[1.8rem] h-[56px];
+  @apply bg-[#FE705A] text-white text-[1.25rem] px-[0.4rem] my-[0.8rem] w-[285px] rounded-[1.8rem] h-[56px];
 }
 .curve {
-  @apply bg-[#2B5587] h-[485px] w-[500px] rounded-tr-[15rem] -z-10 absolute bottom-0;
+  @apply bg-[#2B5587] h-[420px] w-full rounded-tr-[12rem] -z-10 absolute bottom-0;
 }
 
 /*Register Page*/
@@ -97,7 +97,7 @@ html {
   @apply flex flex-col mt-[5rem] ml-2 relative z-10;
 }
 .register__form input {
-  @apply m-3 p-2 w-[20rem] rounded-tl-[50px] rounded-tr-none rounded-br-[50px] rounded-bl-none h-[56px];
+  @apply m-3 p-2 h-[3.5rem] w-[20rem] rounded-tl-[50px] rounded-tr-none rounded-br-[50px] rounded-bl-none;
 }
 
 .register__top {
@@ -110,10 +110,10 @@ html {
   @apply text-[2rem] text-[#2B5587] -mt-[2rem] -rotate-6;
 }
 .register__submit {
-  @apply text-white text-[1.5rem] bg-[#FE705A] rounded-[1.8rem] w-[15rem] h-[4rem] pr-3 ml-[3rem] mt-[1rem] bg-[url("/images/Login-small.png")] bg-[10.5rem] bg-no-repeat pb-1;
+  @apply text-white text-[1.5rem] bg-[#FE705A] rounded-[1.8rem] w-[15rem] h-[4rem] pr-3 ml-[3rem] mt-[1rem] bg-[url("../images/Login-small.png")] bg-[10.5rem] bg-no-repeat pb-1;
 }
 .curve__register {
-  @apply bg-[#2B5587] h-[40rem] w-[30rem] rounded-tr-[22rem] -z-10 absolute top-[18rem];
+  @apply bg-[#2B5587] h-[40rem] w-full rounded-tr-[13rem] -z-10 absolute top-[18rem];
 }
 #name {
   @apply bg-[url("../images/Name.png")] bg-[30px_20px] bg-no-repeat p-[12px_20px_12px_70px];
