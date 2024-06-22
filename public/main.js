@@ -22,10 +22,10 @@ let timerInterval;
 
 window.addEventListener("load", function () {
   if (loaderIndex) {
-    this.setTimeout(() => loaderIndex.classList.add("hidden"), 5000);
+    this.setTimeout(() => loaderIndex.classList.add("hidden"), 2000);
   }
   if (loaderRegister) {
-    this.setTimeout(() => loaderRegister.classList.add("hidden"), 5000);
+    this.setTimeout(() => loaderRegister.classList.add("hidden"), 2000);
   }
 });
 // function showError() {

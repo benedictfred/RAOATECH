@@ -83,7 +83,7 @@ html {
   @apply bg-[#FE705A] text-white text-[1.25rem] px-[0.4rem] my-[0.8rem] w-[285px] rounded-[1.8rem] h-[56px];
 }
 .curve {
-  @apply bg-[#2B5587] h-[30rem] w-[24.5rem] rounded-tr-[12rem] -z-10 absolute bottom-0;
+  @apply bg-[#2B5587] h-[30rem] w-[24.5rem] rounded-tr-[12rem] -z-10 absolute bottom-[-1rem];
 }
 
 /*Register Page*/
@@ -128,7 +128,7 @@ html {
   @apply bg-[url("../images/BusinessCard.png")] bg-[30px_20px] bg-no-repeat p-[12px_20px_12px_70px];
 }
 .register__foot {
-  @apply text-white font-[1rem] mt-2 flex justify-center items-center text-center;
+  @apply text-white text-[1.1rem] mt-[0.7rem] mr-[2rem] flex justify-center items-center;
 }
 .login__foot {
   @apply text-[#FE705A] pl-2;
@@ -138,32 +138,26 @@ html {
 .login {
   @apply flex flex-col justify-center items-center content-center;
 }
+.login__head {
+  @apply flex flex-row justify-center content-center items-center mt-[1rem];
+}
 .login__text {
-  @apply text-[3rem] text-[#2B5587] font-extrabold;
+  @apply text-[2rem] text-[#2B5587];
 }
 .login__form {
-  @apply mt-[10rem];
+  @apply mt-[2rem];
 }
 .login__form input {
-  @apply m-3 p-2 w-[20rem] rounded-[50px_0px_50px_0px] h-[3rem] pl-[8rem] ml-[2rem] outline-none;
-}
-.login__form span {
-  @apply bg-[#00A8FF] rounded-[50px_0px_50px_0px] text-white;
-}
-.span__email {
-  @apply inline-block w-[8rem] h-[3rem]  pt-2 pl-7 z-10 absolute -left-1 mt-[0.8rem] ml-[2rem] shadow-[6px_0px_rgba(0,0,0,0.3)];
-}
-.span__id {
-  @apply inline-block w-[8rem] h-[3rem]  pt-2 pl-10 z-10 absolute -left-1 mt-[0.8rem] ml-[2rem] shadow-[6px_0px_rgba(0,0,0,0.3)];
+  @apply m-3 w-[20.5rem] rounded-[50px_0px_50px_0px] h-[3rem] pl-[2rem] ml-[2rem] outline-none;
 }
 .curve__login {
   @apply bg-[#2B5587] h-[32rem] w-[22rem] rounded-tr-[7rem] -z-10 absolute top-[18rem] max-[480px]:w-full md:w-[20rem] md:h-[40rem];
 }
 .login__submit {
-  @apply text-white text-[1.5rem] text-center bg-[#FE705A] rounded-[50px_0px_50px_0px] w-[14rem] h-[3rem] ml-[5rem] mt-[1rem] bg-[url("../images/Login.png")] bg-[10rem] bg-no-repeat;
+  @apply text-white text-[1.5rem] text-center bg-[#FE705A] rounded-[1.8rem] w-[15rem] h-[4rem] ml-[5rem] mt-[1rem] bg-[url("../images/Login-small.png")] bg-[10rem] bg-no-repeat pb-1;
 }
 .signin__foot {
-  @apply text-white font-[1rem] flex justify-center items-center text-center mt-[5rem];
+  @apply text-white text-[1.25rem] flex justify-center items-center text-center mt-[2rem];
 }
 
 /*Dashboard*/

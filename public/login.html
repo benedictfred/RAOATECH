@@ -16,42 +16,43 @@
       <a href="register.html"><button class="back__arrow">&larr;</button></a>
     </nav>
     <section class="login">
-      <div class="login__img -mt-[2rem]">
+      <div class="login__head -mt-[2rem]">
         <img src="../images/raoatech.png" alt="Raoateh Logo" />
+        <h1 class="login__text outfit-extrabold">RAOATECH</h1>
       </div>
-      <h1 class="login__text inter-font">RAOATECH</h1>
       <p
         id="error-message"
         class="hidden text-red-500 text-[1.1rem] font-bold absolute top-[19rem]"
       >
         Wrong Email or Id
       </p>
+      <h2 class="outfit-semibold text-white text-[1.5rem] mt-[6rem]">
+        WELCOME
+      </h2>
       <form method="post" class="login__form">
-        <div class="input-group">
-          <input
-            type="email"
-            name="email"
-            placeholder="Input your Email"
-            value="test@gmail.com"
-            class="login__email"
-            required
-          />
-          <span class="span__email">User Email</span>
-        </div>
-        <div class="input-group">
-          <input
-            type="text"
-            name="id"
-            placeholder="Input your ID"
-            value="test id"
-            class="login__id"
-            required
-          />
-          <span class="span__id">User ID</span>
-        </div>
-        <button type="submit" class="login__submit inter-font">Login</button>
+        <input
+          type="email"
+          name="email"
+          placeholder="Input your Email"
+          value="test@gmail.com"
+          class="login__email"
+          required
+        />
+
+        <input
+          type="text"
+          name="id"
+          placeholder="Input your ID"
+          value="test id"
+          class="login__id"
+          required
+        />
+
+        <button type="submit" class="login__submit outfit-semibold">
+          Login
+        </button>
       </form>
-      <p class="signin__foot inter-font">
+      <p class="signin__foot outfit-semibold">
         Don't have an account?
         <span class="login__foot"><a href="register.html">Signup</a></span>
       </p>
