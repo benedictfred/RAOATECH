@@ -14,13 +14,19 @@ let formData = {};
 const data = [];
 const resendLink = document.querySelector(".timer__reset");
 const timerElement = document.querySelector(".timer");
-const loader = document.querySelector(".preloader");
+const loaderIndex = document.querySelector(".preloader");
+const loaderRegister = document.querySelector(".preloader__register");
 const welcome = document.querySelector(".welcome");
 let countdown = 60;
 let timerInterval;
 
 window.addEventListener("load", function () {
-  this.setTimeout(() => loader.classList.add("hidden"), 10000);
+  if (loaderIndex) {
+    this.setTimeout(() => loaderIndex.classList.add("hidden"), 5000);
+  }
+  if (loaderRegister) {
+    this.setTimeout(() => loaderRegister.classList.add("hidden"), 5000);
+  }
 });
 // function showError() {
 //   errorMessage.classList.remove("hidden");

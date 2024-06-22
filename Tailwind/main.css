@@ -7,7 +7,7 @@
 html {
   background-color: #e9efff;
   font-size: 16px;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 .outfit-thin {
@@ -107,7 +107,7 @@ html {
   @apply relative top-[4rem];
 } */
 .register__text {
-  @apply text-[2rem] text-[#2B5587] -mt-[2rem] -rotate-6;
+  @apply text-[2rem] text-[#2B5587] text-center -mt-[2rem] -rotate-6;
 }
 .register__submit {
   @apply text-white text-[1.5rem] bg-[#FE705A] rounded-[1.8rem] w-[15rem] h-[4rem] pr-3 ml-[3rem] mt-[1rem] bg-[url("../images/Login-small.png")] bg-[10.5rem] bg-no-repeat pb-1;
