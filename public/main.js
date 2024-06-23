@@ -46,9 +46,6 @@ window.addEventListener("load", function () {
   if (loaderRegister) {
     this.setTimeout(() => loaderRegister.classList.add("hidden"), 2000);
   }
-  if (formLogin) {
-    loaderLogin.classList.add("hidden");
-  }
 });
 
 // inputElements.forEach((ele, index) => {
@@ -158,8 +155,8 @@ if (formLogin) {
       showError();
       setTimeout(() => hideError(), 3000);
     } else {
-      loaderLogin.classList.remove("hidden");
-      setTimeout(() => (window.location.href = "dashboard.html"), 3000);
+      loaderLogin.classList.toggle("hidden");
+      setTimeout(() => (window.location.href = "dashboard.html"), 2000);
     }
   });
 }
