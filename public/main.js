@@ -47,11 +47,11 @@ window.addEventListener("load", function () {
     this.setTimeout(() => loaderRegister.classList.add("hidden"), 2000);
   }
 });
-window.addEventListener("pageshow", function (event) {
-  if (event.persisted) {
-    loaderLogin.classList.add("hidden");
-  }
-});
+// window.addEventListener("pageshow", function (event) {
+//   if (event.persisted) {
+//     loaderLogin.classList.add("hidden");
+//   }
+// });
 
 // inputElements.forEach((ele, index) => {
 //   ele.addEventListener("keydown", (e) => {
@@ -145,9 +145,7 @@ if (formRegister) {
     }
   });
 }
-
 if (formLogin) {
-  loaderLogin.classList.add("hidden");
   formLogin.addEventListener("submit", function (e) {
     e.preventDefault();
     const storedData = JSON.parse(localStorage.getItem("formData"));
@@ -160,11 +158,12 @@ if (formLogin) {
       showError();
       setTimeout(() => hideError(), 3000);
     } else {
-      loaderLogin.classList.toggle("hidden");
-      setTimeout(() => (window.location.href = "dashboard.html"), 2000);
+      loaderLogin.classList.remove("hidden");
+      setTimeout(() => (window.location.href = "dashboard.html"), 1000);
     }
   });
 }
+loaderLogin.classList.add("hidden");
 
 // const verifyBtn = document.querySelector(".verify__btn");
 // if (verifyBtn) {
