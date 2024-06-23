@@ -46,6 +46,9 @@ window.addEventListener("load", function () {
   if (loaderRegister) {
     this.setTimeout(() => loaderRegister.classList.add("hidden"), 2000);
   }
+  if (formLogin) {
+    loaderLogin.classList.add("hidden");
+  }
 });
 
 // inputElements.forEach((ele, index) => {
