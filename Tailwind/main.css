@@ -77,7 +77,7 @@ html {
   @apply relative top-[5rem] ml-[2rem] mt-[2.5rem];
 }
 .welcome__links {
-  @apply flex flex-col content-between justify-between absolute bottom-[2rem];
+  @apply flex flex-col content-between justify-between mt-[15rem];
 }
 .sign_in {
   @apply bg-[#FE705A] text-white text-[1.25rem] px-[0.4rem] my-[0.8rem] w-[285px] rounded-[1.8rem] h-[56px];
