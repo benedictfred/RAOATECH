@@ -83,7 +83,7 @@ html {
   @apply bg-[#FE705A] text-white text-[1.25rem] px-[0.4rem] my-[0.8rem] w-[285px] rounded-[1.8rem] h-[56px];
 }
 .curve {
-  @apply bg-[#2B5587] h-[30rem] w-[24.5rem] rounded-tr-[12rem] -z-10 absolute bottom-[-2rem];
+  @apply bg-[#2B5587] h-[32rem] w-[22rem] rounded-tr-[7rem] -z-10 absolute top-[18rem] max-[480px]:w-full md:w-[20rem] md:h-[40rem];
 }
 
 /*Register Page*/

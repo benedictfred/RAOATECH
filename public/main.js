@@ -11,6 +11,7 @@ const loginId = document.querySelector(".login__id");
 const formLogin = document.querySelector(".login__form");
 const errorMessage = document.getElementById("error-message");
 const fillMessage = document.querySelector(".fill__message");
+const checkinDetails = document.querySelector(".details");
 let formData = {};
 const data = [];
 const resendLink = document.querySelector(".timer__reset");
@@ -44,6 +45,9 @@ window.addEventListener("load", function () {
   }
   if (loaderRegister) {
     this.setTimeout(() => loaderRegister.classList.add("hidden"), 2000);
+  }
+  if (loaderLogin) {
+    loaderLogin.classList.add("hidden");
   }
 });
 
@@ -175,3 +179,22 @@ if (formLogin) {
 //     emailText.textContent = masked;
 //   }
 // }
+
+const now = new Date();
+const formatTime = function (date) {
+  let hours = date.getHours();
+  const minutes = date.getMinutes();
+  const meridian = hours > 12 ? "pm" : "am";
+  const strMinutes = minutes < 10 ? `0${minutes}` : minutes;
+  return `${hours}:${strMinutes} ${meridian}`;
+};
+
+if (checkinDetails) {
+  const storedData = JSON.parse(localStorage.getItem("formData"));
+  const html = ` <p>Login Details</p>
+          <p>Name: ${storedData.fullName} </p>
+          <p>Time of Check-in: ${formatTime(now)}</p>
+          <p>Time of Check-out: N/A</p> `;
+
+  checkinDetails.insertAdjacentHTML("beforeend", html);
+}
