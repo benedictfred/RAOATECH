@@ -47,6 +47,11 @@ window.addEventListener("load", function () {
     this.setTimeout(() => loaderRegister.classList.add("hidden"), 2000);
   }
 });
+window.addEventListener("pageshow", function (event) {
+  if (event.persisted) {
+    loaderLogin.classList.add("hidden");
+  }
+});
 
 // inputElements.forEach((ele, index) => {
 //   ele.addEventListener("keydown", (e) => {
