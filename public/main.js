@@ -10,16 +10,34 @@ const loginEmail = document.querySelector(".login__email");
 const loginId = document.querySelector(".login__id");
 const formLogin = document.querySelector(".login__form");
 const errorMessage = document.getElementById("error-message");
+const fillMessage = document.querySelector(".fill__message");
 let formData = {};
 const data = [];
 const resendLink = document.querySelector(".timer__reset");
 const timerElement = document.querySelector(".timer");
 const loaderIndex = document.querySelector(".preloader");
 const loaderRegister = document.querySelector(".preloader__register");
+const loaderLogin = document.querySelector(".preloader__login");
 const welcome = document.querySelector(".welcome");
 let countdown = 60;
 let timerInterval;
+function showError() {
+  errorMessage.classList.remove("hidden");
+  errorMessage.classList.add("slide-in");
+}
 
+function hideError() {
+  errorMessage.classList.remove("slide-in");
+  errorMessage.classList.add("hidden");
+}
+const showFillMessage = function () {
+  fillMessage.classList.remove("hidden");
+  fillMessage.classList.add("slide-in");
+  setTimeout(() => {
+    fillMessage.classList.remove("slide-in");
+    fillMessage.classList.add("hidden");
+  }, 3000);
+};
 window.addEventListener("load", function () {
   if (loaderIndex) {
     this.setTimeout(() => loaderIndex.classList.add("hidden"), 2000);
@@ -28,15 +46,6 @@ window.addEventListener("load", function () {
     this.setTimeout(() => loaderRegister.classList.add("hidden"), 2000);
   }
 });
-// function showError() {
-//   errorMessage.classList.remove("hidden");
-//   errorMessage.classList.add("slide-in");
-// }
-
-// function hideError() {
-//   errorMessage.classList.remove("slide-in");
-//   errorMessage.classList.add("hidden");
-// }
 
 // inputElements.forEach((ele, index) => {
 //   ele.addEventListener("keydown", (e) => {
@@ -113,42 +122,42 @@ window.addEventListener("load", function () {
 //   });
 // }
 
-// if (formRegister) {
-//   formRegister.addEventListener("submit", function (e) {
-//     e.preventDefault();
-//     if (fullName.value && job.value && email.value && id.value) {
-//       formData = {
-//         fullName: fullName.value,
-//         job: job.value,
-//         email: email.value,
-//         id: id.value,
-//       };
-//       localStorage.setItem("formData", JSON.stringify(formData));
-//       window.location.href = "verify.html";
-//     }
-//   });
-// }
+if (formRegister) {
+  formRegister.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!fullName.value || !job.value || !email.value || !id.value) {
+      showFillMessage();
+    } else {
+      formData = {
+        fullName: fullName.value,
+        job: job.value,
+        email: email.value,
+        id: id.value,
+      };
+      localStorage.setItem("formData", JSON.stringify(formData));
+      window.location.href = "verify.html";
+    }
+  });
+}
 
-// if (formLogin) {
-//   formLogin.addEventListener("submit", function (e) {
-//     e.preventDefault();
-//     const storedData = JSON.parse(localStorage.getItem("formData"));
-//     if (loginEmail && loginId)
-//       if (
-//         loginEmail.value === storedData.email &&
-//         loginId.value === storedData.id
-//       ) {
-//         window.location.href = "dashboard.html";
-//       } else {
-//         showError();
-//         setTimeout(() => hideError(), 2000);
-//       }
-//     else {
-//       loginEmail.setAttribute("required", "true");
-//       loginId.setAttribute("required", "true");
-//     }
-//   });
-// }
+if (formLogin) {
+  formLogin.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const storedData = JSON.parse(localStorage.getItem("formData"));
+    if (!loginEmail.value || !loginId.value) {
+      showFillMessage();
+    } else if (
+      loginEmail.value !== storedData.email ||
+      loginId.value !== storedData.id
+    ) {
+      showError();
+      setTimeout(() => hideError(), 3000);
+    } else {
+      loaderLogin.classList.remove("hidden");
+      setTimeout(() => (window.location.href = "dashboard.html"), 3000);
+    }
+  });
+}
 
 // const verifyBtn = document.querySelector(".verify__btn");
 // if (verifyBtn) {

@@ -15,7 +15,7 @@
   </head>
   <body>
     <div
-      class="hidden fixed top-0 left-0 w-full h-full backdrop-brightness-[0.3] z-40"
+      class="preloader__login hidden fixed top-0 left-0 w-full h-full backdrop-brightness-[0.3] z-40"
     >
       <div
         class="flex-col gap-4 w-full flex items-center justify-center fixed top-0 left-0 h-full z-50"
@@ -34,26 +34,27 @@
         <img src="../images/raoatech.png" alt="Raoateh Logo" />
         <h1 class="login__text outfit-extrabold">RAOATECH</h1>
       </div>
-      <p
-        id="error-message"
-        class="hidden text-[#F85050] text-[1.1rem] font-bold absolute top-[19rem]"
-      >
-        Wrong Email or Id
-      </p>
       <h2 class="outfit-semibold text-white text-[1.5rem] mt-[6rem]">
         WELCOME
       </h2>
-      <p class="outfit-bold text-[#F85050] text-[1rem] mr-[9rem] mt-[3rem]">
+      <p
+        class="fill__message hidden outfit-bold text-[#F85050] text-[1rem] mr-[9rem] mt-[1rem]"
+      >
         Kindly fill out the form
+      </p>
+      <p
+        id="error-message"
+        class="hidden text-[#F85050] text-[1.1rem] ml-[5rem] font-bold"
+      >
+        Wrong Email or Id
       </p>
       <form method="post" class="login__form">
         <input
           type="email"
           name="email"
           placeholder="Input your Email"
-          value="test@gmail.com"
+          value="johndoe@gmail.com"
           class="login__email"
-          required
         />
 
         <input
@@ -62,7 +63,6 @@
           placeholder="Input your ID"
           value="test id"
           class="login__id"
-          required
         />
 
         <button type="submit" class="login__submit outfit-semibold">

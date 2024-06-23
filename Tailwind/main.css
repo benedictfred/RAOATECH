@@ -83,7 +83,7 @@ html {
   @apply bg-[#FE705A] text-white text-[1.25rem] px-[0.4rem] my-[0.8rem] w-[285px] rounded-[1.8rem] h-[56px];
 }
 .curve {
-  @apply bg-[#2B5587] h-[30rem] w-[24.5rem] rounded-tr-[12rem] -z-10 absolute bottom-[-1rem];
+  @apply bg-[#2B5587] h-[30rem] w-[24.5rem] rounded-tr-[12rem] -z-10 absolute bottom-[-2rem];
 }
 
 /*Register Page*/
@@ -192,12 +192,12 @@ html {
 }
 
 /*Email Verify*/
-.email__text {
+/* .email__text {
   @apply text-white mt-[7rem] text-[1.5rem];
-}
-.verify__btn {
+} */
+/* .verify__btn {
   @apply mt-[2rem];
-}
+} */
 
 /*Password Reset*/
 .form__reset {
@@ -237,11 +237,12 @@ html {
   }
 }
 
-#error-message {
+#error-message,
+.fill__message {
   transition: opacity 0.5s ease;
 }
 
-#error-message.slide-in {
+.slide-in {
   animation: slideInFromRight 0.5s forwards;
   display: block;
 }

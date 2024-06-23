@@ -9,6 +9,8 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="tailwind.css" />
+    <script defer src="main.js"></script>
+
     <title>RAOATECH SIGNUP</title>
   </head>
   <body>
@@ -52,7 +54,9 @@
 
       <form method="post" class="register__form">
         <p class="outfit-bold text-white text-[1.25rem]">Kindly Register</p>
-        <p class="outfit-bold text-[#F85050] text-[1rem] ml-[10rem]">
+        <p
+          class="fill__message hidden outfit-bold text-[#F85050] text-[1rem] ml-[10rem]"
+        >
           Kindly fill out the form
         </p>
         <input
@@ -61,7 +65,6 @@
           id="name"
           placeholder="Full Name"
           value="John Doe"
-          required
         />
         <input
           type="text"
@@ -69,7 +72,6 @@
           id="job"
           placeholder="Job Role"
           value="Test Job"
-          required
         />
         <input
           type="email"
@@ -77,16 +79,8 @@
           id="email"
           placeholder="Email"
           value="johndoe@gmail.com"
-          required
         />
-        <input
-          type="text"
-          name="id"
-          id="id"
-          placeholder="ID"
-          value="test id"
-          required
-        />
+        <input type="text" name="id" id="id" placeholder="ID" value="test id" />
         <a href="verify.html"
           ><button type="submit" class="register__submit outfit-bold">
             Register
@@ -105,7 +99,5 @@
       </p>
       <div class="curve__register"></div>
     </section>
-
-    <script src="main.js"></script>
   </body>
 </html>
