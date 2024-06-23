@@ -9,9 +9,23 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="tailwind.css" />
+    <script defer src="main.js"></script>
+
     <title>RAOATECH LOGIN</title>
   </head>
   <body>
+    <div
+      class="hidden fixed top-0 left-0 w-full h-full backdrop-brightness-[0.3] z-40"
+    >
+      <div
+        class="flex-col gap-4 w-full flex items-center justify-center fixed top-0 left-0 h-full z-50"
+      >
+        <div
+          class="w-28 h-28 border-8 animate-spin border-gray-300 flex items-center justify-center border-t-white rounded-full"
+        ></div>
+      </div>
+    </div>
+
     <nav>
       <a href="register.html"><button class="back__arrow">&larr;</button></a>
     </nav>
@@ -22,13 +36,16 @@
       </div>
       <p
         id="error-message"
-        class="hidden text-red-500 text-[1.1rem] font-bold absolute top-[19rem]"
+        class="hidden text-[#F85050] text-[1.1rem] font-bold absolute top-[19rem]"
       >
         Wrong Email or Id
       </p>
       <h2 class="outfit-semibold text-white text-[1.5rem] mt-[6rem]">
         WELCOME
       </h2>
+      <p class="outfit-bold text-[#F85050] text-[1rem] mr-[9rem] mt-[3rem]">
+        Kindly fill out the form
+      </p>
       <form method="post" class="login__form">
         <input
           type="email"
@@ -58,7 +75,5 @@
       </p>
       <div class="curve__login"></div>
     </section>
-
-    <script src="main.js"></script>
   </body>
 </html>

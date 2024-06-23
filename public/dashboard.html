@@ -12,31 +12,43 @@
     <title>DASHBOARD</title>
   </head>
   <body>
+    <div
+      class="hidden fixed top-0 left-0 w-full h-full backdrop-brightness-[0.3] z-40"
+    >
+      <div
+        class="flex-col gap-4 w-full flex items-center justify-center fixed top-0 left-0 h-full z-50"
+      >
+        <div
+          class="w-28 h-28 border-8 animate-spin border-gray-300 flex items-center justify-center border-t-white rounded-full"
+        ></div>
+      </div>
+    </div>
+
     <nav>
       <a href="login.html"><button class="back__arrow">&larr;</button></a>
     </nav>
     <section class="login">
-      <div class="login__img -mt-[2rem]">
+      <div class="dash__head">
         <img src="../images/raoatech.png" alt="Raoateh Logo" />
+        <h1 class="login__text outfit-extrabold">RAOATECH</h1>
       </div>
-      <h1 class="login__text inter-font">RAOATECH</h1>
 
       <div class="dash__main">
-        <h2 class="dash__text inter-font">Good Morning MR JOHN</h2>
+        <h2 class="dash__text outfit-bold">Good Morning MR JOHN</h2>
         <a href="checkin.html"
-          ><button type="submit" class="dash__btn inter-font">
+          ><button type="submit" class="dash__btn outfit-semibold">
             Check In
           </button></a
         >
         <a href="checkout.html"
-          ><button type="submit" class="dash__btn inter-font">
+          ><button type="submit" class="dash__btn outfit-semibold">
             Check Out
           </button></a
         >
       </div>
 
       <p
-        class="dash__foot inter-font font-bold text-white text-[1.1rem] mt-[8rem]"
+        class="text-white text-center mt-[10rem] text-[0.75rem] outfit-semibold opacity-20"
       >
         POWERED BY RAOATECH
       </p>

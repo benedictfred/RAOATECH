@@ -145,10 +145,10 @@ html {
   @apply text-[2rem] text-[#2B5587];
 }
 .login__form {
-  @apply mt-[2rem];
+  @apply mt-[0.5rem];
 }
 .login__form input {
-  @apply m-3 w-[20.5rem] rounded-[50px_0px_50px_0px] h-[3rem] pl-[2rem] ml-[2rem] outline-none;
+  @apply m-3 w-[20.5rem] rounded-[50px_0px_50px_0px] h-[3.5rem] pl-[2rem] ml-[2rem] outline-none;
 }
 .curve__login {
   @apply bg-[#2B5587] h-[32rem] w-[22rem] rounded-tr-[7rem] -z-10 absolute top-[18rem] max-[480px]:w-full md:w-[20rem] md:h-[40rem];
@@ -162,18 +162,21 @@ html {
 
 /*Dashboard*/
 .dash__main {
-  @apply flex flex-col justify-center content-center mt-[5rem];
+  @apply flex flex-col justify-center content-center mt-[8rem];
+}
+.dash__head {
+  @apply flex flex-row justify-center content-center items-center mt-[1rem];
 }
 .dash__btn {
-  @apply text-white text-[1.5rem] text-center bg-[#FE705A] rounded-[50px_0px_50px_0px] w-[20rem] h-[3rem] bg-[url("../images/Login.png")] bg-[15rem] bg-no-repeat mt-[2rem];
+  @apply text-white text-[1.5rem] text-center bg-[#FE705A] rounded-[50px_0px_50px_0px] w-[20.5rem] h-[3.5rem] bg-[url("../images/Login.png")] bg-[15rem] bg-no-repeat mt-[2rem];
 }
 .dash__text {
-  @apply text-white text-[1.5rem] font-bold ml-2 leading-10;
+  @apply text-white text-[1.5rem] ml-2 leading-10;
 }
 
 /*Check In / Out*/
 .check__main {
-  @apply flex flex-col justify-center content-center items-center mt-[7rem];
+  @apply flex flex-col justify-center content-center items-center;
 }
 .check__main > p {
   @apply text-white font-bold text-[1.5rem];
@@ -183,6 +186,9 @@ html {
 }
 .saved__text {
   @apply inline-block text-center ml-[5rem];
+}
+.curve__check {
+  @apply bg-[#2B5587] h-[35rem] w-[22rem] rounded-tr-[7rem] -z-10 absolute top-[18rem] max-[480px]:w-full md:w-[20rem] md:h-[40rem];
 }
 
 /*Email Verify*/
