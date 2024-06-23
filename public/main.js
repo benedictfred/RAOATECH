@@ -46,9 +46,6 @@ window.addEventListener("load", function () {
   if (loaderRegister) {
     this.setTimeout(() => loaderRegister.classList.add("hidden"), 2000);
   }
-  if (loaderLogin) {
-    loaderLogin.classList.add("hidden");
-  }
 });
 
 // inputElements.forEach((ele, index) => {
@@ -145,6 +142,7 @@ if (formRegister) {
 }
 
 if (formLogin) {
+  loaderLogin.classList.add("hidden");
   formLogin.addEventListener("submit", function (e) {
     e.preventDefault();
     const storedData = JSON.parse(localStorage.getItem("formData"));
