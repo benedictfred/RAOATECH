@@ -47,11 +47,11 @@ window.addEventListener("load", function () {
     this.setTimeout(() => loaderRegister.classList.add("hidden"), 2000);
   }
 });
-// window.addEventListener("pageshow", function (event) {
-//   if (event.persisted) {
-//     loaderLogin.classList.add("hidden");
-//   }
-// });
+window.addEventListener("pageshow", function (event) {
+  if (event.persisted) {
+    loaderLogin.classList.add("hidden");
+  }
+});
 
 // inputElements.forEach((ele, index) => {
 //   ele.addEventListener("keydown", (e) => {
@@ -145,6 +145,7 @@ if (formRegister) {
     }
   });
 }
+loaderLogin.classList.add("hidden");
 if (formLogin) {
   formLogin.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -163,7 +164,6 @@ if (formLogin) {
     }
   });
 }
-loaderLogin.classList.add("hidden");
 
 // const verifyBtn = document.querySelector(".verify__btn");
 // if (verifyBtn) {
