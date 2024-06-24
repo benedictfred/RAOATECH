@@ -3,7 +3,7 @@ const fullName = document.getElementById("name");
 const job = document.getElementById("job");
 const email = document.getElementById("email");
 const id = document.getElementById("id");
-const register__btn = document.querySelector(".register__submit");
+const registerBtn = document.querySelector(".register__submit");
 const formRegister = document.querySelector(".register__form");
 const emailText = document.querySelector(".email__actual");
 const loginEmail = document.querySelector(".login__email");
@@ -12,8 +12,9 @@ const formLogin = document.querySelector(".login__form");
 const errorMessage = document.getElementById("error-message");
 const fillMessage = document.querySelector(".fill__message");
 const checkinDetails = document.querySelector(".details");
+const dashboard = document.querySelector(".dash__main");
+const checkinBtn = document.querySelector(".checkin__btn");
 let formData = {};
-const data = [];
 const resendLink = document.querySelector(".timer__reset");
 const timerElement = document.querySelector(".timer");
 const loaderIndex = document.querySelector(".preloader");
@@ -22,15 +23,15 @@ const loaderLogin = document.querySelector(".preloader__login");
 const welcome = document.querySelector(".welcome");
 let countdown = 60;
 let timerInterval;
-function showError() {
+const showError = function () {
   errorMessage.classList.remove("hidden");
   errorMessage.classList.add("slide-in");
-}
+};
 
-function hideError() {
+const hideError = function () {
   errorMessage.classList.remove("slide-in");
   errorMessage.classList.add("hidden");
-}
+};
 const showFillMessage = function () {
   fillMessage.classList.remove("hidden");
   fillMessage.classList.add("slide-in");
@@ -50,6 +51,7 @@ window.addEventListener("load", function () {
 window.addEventListener("pageshow", function (event) {
   if (event.persisted) {
     loaderLogin.classList.add("hidden");
+    loaderLogin.style.display = "none";
   }
 });
 
@@ -145,7 +147,6 @@ if (formRegister) {
     }
   });
 }
-loaderLogin.classList.add("hidden");
 if (formLogin) {
   formLogin.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -182,7 +183,6 @@ if (formLogin) {
 //   }
 // }
 
-const now = new Date();
 const formatTime = function (date) {
   let hours = date.getHours();
   const minutes = date.getMinutes();
@@ -191,12 +191,26 @@ const formatTime = function (date) {
   return `${hours}:${strMinutes} ${meridian}`;
 };
 
+const setCheckinTime = function () {
+  const now = new Date();
+  const formattedTime = formatTime(now);
+  localStorage.setItem("checkinTime", formattedTime);
+};
+
 if (checkinDetails) {
   const storedData = JSON.parse(localStorage.getItem("formData"));
+  const storedCheckinTime = localStorage.getItem("checkinTime");
+
   const html = ` <p>Login Details</p>
           <p>Name: ${storedData.fullName} </p>
-          <p>Time of Check-in: ${formatTime(now)}</p>
+          <p>Time of Check-in: ${storedCheckinTime}</p>
           <p>Time of Check-out: N/A</p> `;
 
   checkinDetails.insertAdjacentHTML("beforeend", html);
+}
+
+if (dashboard) {
+  checkinBtn.addEventListener("click", function () {
+    setCheckinTime();
+  });
 }
