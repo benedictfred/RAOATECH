@@ -16,13 +16,13 @@ const dashboard = document.querySelector(".dash__main");
 const checkinBtn = document.querySelector(".checkin__btn");
 let formData = {};
 const resendLink = document.querySelector(".timer__reset");
-const timerElement = document.querySelector(".timer");
+const countdownElement = document.getElementById("countdown");
+const circleWrap = document.querySelector(".circle-wrap");
 const loaderIndex = document.querySelector(".preloader");
 const loaderRegister = document.querySelector(".preloader__register");
 const loaderLogin = document.querySelector(".preloader__login");
 const welcome = document.querySelector(".welcome");
-let countdown = 60;
-let timerInterval;
+let countdownInterval;
 const showError = function () {
   errorMessage.classList.remove("hidden");
   errorMessage.classList.add("slide-in");
@@ -92,43 +92,45 @@ window.addEventListener("pageshow", function (event) {
 //   const code = inputElements.map(({ value }) => value).join("");
 //   console.log(code);
 // }
+let duration = 10;
+let remainingTime = duration;
 
-// const updateTimer = () => {
-//   if (countdown > 0) {
-//     countdown--;
-//     timerElement.textContent = `${countdown}s`;
-//   } else {
-//     clearInterval(timerInterval);
-//     timerElement.textContent = " ";
-//     resendLink.removeAttribute("disabled");
-//     resendLink.href = "#";
-//     resendLink.style.opacity = 1;
-//   }
-// };
+function updateCountdown() {
+  if (remainingTime > 0) {
+    remainingTime--;
+    countdownElement.innerHTML = remainingTime;
+    const percentage = (360 * remainingTime) / duration;
+    circleWrap.style.setProperty("--percentage", `${percentage}deg`);
+  } else {
+    clearInterval(countdownInterval);
+    circleWrap.style.setProperty("--percentage", `360deg`);
+    countdownElement.innerHTML = duration;
+    resendLink.removeAttribute("disabled");
+    resendLink.href = "#";
+    resendLink.style.opacity = 1;
+  }
+}
 
-// if (resendLink && timerElement) {
-//   resendLink.setAttribute("disabled", "true");
-//   resendLink.removeAttribute("href");
-//   timerElement.style.opacity = 1;
-//   resendLink.style.opacity = 0.5;
-//   timerElement.textContent = `${countdown}s`;
+if (resendLink && countdownElement) {
+  circleWrap.style.setProperty("--percentage", `360deg`);
+  countdownElement.innerHTML = duration;
+  resendLink.setAttribute("disabled", "true");
+  resendLink.href = "javascript:void(0)";
+  resendLink.style.opacity = 0.5;
+  countdownInterval = setInterval(updateCountdown, 1000);
 
-//   timerInterval = setInterval(updateTimer, 1000);
-
-//   resendLink.addEventListener("click", (e) => {
-//     if (resendLink.hasAttribute("disabled")) {
-//       e.preventDefault();
-//     } else {
-//       countdown = 60;
-//       resendLink.setAttribute("disabled", "true");
-//       resendLink.removeAttribute("href");
-//       timerElement.style.opacity = 1;
-//       resendLink.style.opacity = 0.5;
-//       timerElement.textContent = `${countdown}s`;
-//       setInterval(updateTimer, 1000);
-//     }
-//   });
-// }
+  resendLink.addEventListener("click", function (e) {
+    if (resendLink.hasAttribute("disabled")) {
+      e.preventDefault();
+    } else {
+      resendLink.setAttribute("disabled", "true");
+      resendLink.href = "javascript:void(0);";
+      resendLink.style.opacity = 0.5;
+      remainingTime = duration;
+      countdownInterval = setInterval(updateCountdown, 1000);
+    }
+  });
+}
 
 if (formRegister) {
   formRegister.addEventListener("submit", function (e) {

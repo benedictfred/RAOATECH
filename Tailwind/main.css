@@ -204,25 +204,25 @@ html {
   @apply flex flex-col justify-center items-center;
 }
 .inputContainer {
-  @apply flex flex-row justify-center items-center gap-2;
+  @apply flex flex-row justify-center content-center items-center bg-[#CDCFCE] opacity-70 mt-[4rem] rounded-[1rem];
 }
 .inputContainer input {
-  @apply w-[3.5rem] h-[3rem] text-center outline-none text-[1.5rem] focus:outline-black mt-[1rem];
+  @apply w-[4rem] h-[5rem] text-center text-[2rem] focus:outline-black backdrop-opacity-40 border-2 border-collapse;
 }
 .head__reset {
-  @apply text-[#2B5587] text-[1.5rem]  font-[700];
+  @apply text-[1.5rem];
 }
 .text__reset {
-  @apply text-[#00A8FF] text-[1rem] font-[600] ml-[2rem] mr-[2rem] text-center leading-5;
+  @apply text-[1rem] mr-[2rem] mt-[1rem];
 }
 .timer__reset {
-  @apply text-[#6ACB85] text-[1.25rem] mt-[1rem];
+  @apply text-white text-[1.25rem];
 }
 .curve__reset {
   @apply bg-[#2B5587] h-[30rem] w-[22rem] rounded-tr-[10rem] -z-10 absolute top-[18rem] max-[480px]:w-full md:w-[20rem] md:h-[40rem];
 }
 .verify {
-  @apply text-[1.5rem] text-[#6ACB85] bg-white text-2xl px-[0.4rem] mt-[9rem] w-[20rem] h-[56px] rounded-2xl;
+  @apply text-[1.25rem] text-white bg-[#FE705A]  mt-[12rem] w-[13.5rem] h-[3.5rem] rounded-full;
 }
 
 /*Error message*/
@@ -261,4 +261,32 @@ html {
   to {
     transform: rotate(360deg);
   }
+}
+
+.circle-wrap {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: conic-gradient(
+    #ffffff 0deg,
+    #ffffff var(--percentage),
+    #2b5587 var(--percentage),
+    #2b5587 360deg
+  );
+  border-radius: 50%;
+}
+.inner-circle {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  background: #2b5587;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1rem;
+  color: #ffffff;
 }

@@ -13,16 +13,20 @@
   </head>
   <body>
     <nav>
-      <a href="verify.html"><button class="back__arrow">&larr;</button></a>
+      <a href="email.html"><button class="back__arrow">&larr;</button></a>
     </nav>
-    <form class="form__reset">
-      <h2 class="head__reset inter-font">Enter Verification Code</h2>
-      <p class="text__reset inter-font">
-        A message with four digit code has been sent to your email address
-        ending in
-        <span class="email__actual">*******kl@gmail.com</span>
+    <div class="flex flex-col ml-[1rem]">
+      <h2 class="head__reset outfit-semibold">
+        Enter 4-digit <br />
+        Verification Code
+      </h2>
+      <p class="text__reset outfit-regular">
+        Code sent to your email address
+        <span class="email__actual">john***@gmail.com</span>
       </p>
-      <div class="inputContainer">
+    </div>
+    <form class="form__reset">
+      <div class="outfit-medium inputContainer">
         <input
           type="text"
           name="code"
@@ -52,13 +56,26 @@
           required
         />
       </div>
-      <a href="" class="timer__reset inter-font">
-        Resend code <span class="timer">60s</span>
-      </a>
-      <button type="submit" class="verify inter-font">
-        Verify Email Address
-      </button>
+      <div
+        class="outfit-regular mt-[1rem] flex justify-between content-between"
+      >
+        <a href="verify.html" class="timer__reset">Resend code</a>
+
+        <div class="circle-wrap ml-[5rem]" style="--percentage: 0deg">
+          <div class="inner-circle">
+            <span id="countdown" class="outfit-regular">60</span>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="verify outfit-medium">Continue</button>
     </form>
+
+    <p
+      class="text-white text-center mt-[3rem] text-[0.75rem] outfit-semibold opacity-20"
+    >
+      POWERED BY RAOATECH
+    </p>
     <div class="curve__reset"></div>
 
     <script src="main.js"></script>
