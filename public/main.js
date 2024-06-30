@@ -14,6 +14,7 @@ const fillMessage = document.querySelector(".fill__message");
 const checkinDetails = document.querySelector(".details");
 const dashboard = document.querySelector(".dash__main");
 const checkinBtn = document.querySelector(".checkin__btn");
+const verifyEmail = document.querySelector(".verify__email");
 let formData = {};
 const resendLink = document.querySelector(".timer__reset");
 const countdownElement = document.getElementById("countdown");
@@ -55,45 +56,74 @@ window.addEventListener("pageshow", function (event) {
   }
 });
 
-// inputElements.forEach((ele, index) => {
-//   ele.addEventListener("keydown", (e) => {
-//     if (e.keyCode === 8 && e.target.value === "") {
-//       inputElements[Math.max(0, index - 1)].focus();
-//     }
-//   });
+inputElements.forEach((ele, index) => {
+  ele.addEventListener("keydown", (e) => {
+    if (e.keyCode === 8 && e.target.value === "") {
+      inputElements[Math.max(0, index - 1)].focus();
+    }
+  });
 
-//   ele.addEventListener("input", (e) => {
-//     const [first, ...rest] = e.target.value;
-//     e.target.value = first ?? "";
-//     const lastInputBox = index === inputElements.length - 1;
-//     const didInsertContent = first !== undefined;
-//     if (didInsertContent && !lastInputBox) {
-//       inputElements[index + 1].focus();
-//       inputElements[index + 1].value = rest.join("");
-//       inputElements[index + 1].dispatchEvent(new Event("input"));
-//     }
-//   });
+  ele.addEventListener("input", (e) => {
+    const [first, ...rest] = e.target.value;
+    e.target.value = first ?? "";
+    const lastInputBox = index === inputElements.length - 1;
+    const didInsertContent = first !== undefined;
+    if (didInsertContent && !lastInputBox) {
+      inputElements[index + 1].focus();
+      inputElements[index + 1].value = rest.join("");
+      inputElements[index + 1].dispatchEvent(new Event("input"));
+    }
+  });
 
-//   ele.addEventListener("paste", (e) => {
-//     const paste = (e.clipboardData || window.clipboardData).getData("text");
-//     const pasteArray = paste.split("");
-//     pasteArray.forEach((char, pasteIndex) => {
-//       if (index + pasteIndex < inputElements.length) {
-//         inputElements[index + pasteIndex].value = char;
-//         inputElements[index + pasteIndex].dispatchEvent(new Event("input"));
-//       }
-//     });
-//     e.preventDefault();
-//   });
-// });
+  ele.addEventListener("paste", (e) => {
+    const paste = (e.clipboardData || window.clipboardData).getData("text");
+    const pasteArray = paste.split("");
+    pasteArray.forEach((char, pasteIndex) => {
+      if (index + pasteIndex < inputElements.length) {
+        inputElements[index + pasteIndex].value = char;
+        inputElements[index + pasteIndex].dispatchEvent(new Event("input"));
+      }
+    });
+    e.preventDefault();
+  });
+});
 
 // function onSubmit(e) {
 //   e.preventDefault();
 //   const code = inputElements.map(({ value }) => value).join("");
 //   console.log(code);
 // }
-let duration = 10;
+let duration = 60;
 let remainingTime = duration;
+function loadSavedData() {
+  const savedTime = localStorage.getItem("remainingTime");
+  const savedTimestamp = localStorage.getItem("timestamp");
+
+  if (savedTime && savedTimestamp) {
+    const elapsed = Math.floor((Date.now() - parseInt(savedTimestamp)) / 1000);
+    remainingTime = parseInt(savedTime) - elapsed;
+
+    if (remainingTime <= 0) {
+      remainingTime = duration;
+    }
+  } else {
+    remainingTime = duration;
+  }
+
+  countdownElement.innerHTML = remainingTime;
+  const percentage = (360 * remainingTime) / duration;
+  circleWrap.style.setProperty("--percentage", `${percentage}deg`);
+}
+
+function saveData() {
+  localStorage.setItem("remainingTime", remainingTime);
+  localStorage.setItem("timestamp", Date.now());
+}
+
+function clearSavedData() {
+  localStorage.removeItem("remainingTime");
+  localStorage.removeItem("timestamp");
+}
 
 function updateCountdown() {
   if (remainingTime > 0) {
@@ -101,6 +131,7 @@ function updateCountdown() {
     countdownElement.innerHTML = remainingTime;
     const percentage = (360 * remainingTime) / duration;
     circleWrap.style.setProperty("--percentage", `${percentage}deg`);
+    saveData();
   } else {
     clearInterval(countdownInterval);
     circleWrap.style.setProperty("--percentage", `360deg`);
@@ -108,16 +139,27 @@ function updateCountdown() {
     resendLink.removeAttribute("disabled");
     resendLink.href = "#";
     resendLink.style.opacity = 1;
+    clearSavedData();
   }
 }
 
-if (resendLink && countdownElement) {
-  circleWrap.style.setProperty("--percentage", `360deg`);
-  countdownElement.innerHTML = duration;
-  resendLink.setAttribute("disabled", "true");
-  resendLink.href = "javascript:void(0)";
-  resendLink.style.opacity = 0.5;
+function startCountdown() {
+  remainingTime = duration;
+  countdownElement.innerHTML = remainingTime;
   countdownInterval = setInterval(updateCountdown, 1000);
+  saveData();
+  localStorage.setItem("hasStartedCountdown", "true");
+}
+
+if (resendLink && countdownElement) {
+  if (!localStorage.getItem("hasStartedCountdown")) {
+    startCountdown();
+    resendLink.setAttribute("disabled", "true");
+    resendLink.href = "javascript:void(0);";
+    resendLink.style.opacity = 0.5;
+  } else {
+    loadSavedData();
+  }
 
   resendLink.addEventListener("click", function (e) {
     if (resendLink.hasAttribute("disabled")) {
@@ -126,8 +168,8 @@ if (resendLink && countdownElement) {
       resendLink.setAttribute("disabled", "true");
       resendLink.href = "javascript:void(0);";
       resendLink.style.opacity = 0.5;
-      remainingTime = duration;
-      countdownInterval = setInterval(updateCountdown, 1000);
+      clearInterval(countdownInterval);
+      startCountdown();
     }
   });
 }
@@ -214,5 +256,15 @@ if (checkinDetails) {
 if (dashboard) {
   checkinBtn.addEventListener("click", function () {
     setCheckinTime();
+  });
+}
+const verifyEmailBtn = document.querySelector(".verify__email--btn");
+if (verifyEmail) {
+  const storedEmail = JSON.parse(localStorage.getItem("formData"));
+  verifyEmail.value = storedEmail.email;
+
+  verifyEmailBtn.addEventListener("click", function () {
+    localStorage.removeItem("hasStartedCountdown");
+    window.location.href = "reset.html";
   });
 }
