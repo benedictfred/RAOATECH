@@ -154,7 +154,7 @@ function startCountdown() {
 }
 
 function refreshWhileCountdown() {
-  const localRemainingTime = localStorage.getItem("remainingTime") - 1;
+  const localRemainingTime = localStorage.getItem("remainingTime");
   remainingTime = localRemainingTime;
   countdownInterval = setInterval(updateCountdown, 1000);
   resendLink.setAttribute("disabled", "true");
