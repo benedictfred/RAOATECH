@@ -105,6 +105,7 @@ function loadSavedData() {
 
     if (remainingTime <= 0) {
       remainingTime = duration;
+      clearSavedData();
     }
   } else {
     remainingTime = duration;
@@ -148,17 +149,29 @@ function startCountdown() {
   countdownElement.innerHTML = remainingTime;
   countdownInterval = setInterval(updateCountdown, 1000);
   saveData();
+  localStorage.setItem("remainingTime", remainingTime);
   localStorage.setItem("hasStartedCountdown", "true");
+}
+
+function refreshWhileCountdown() {
+  const localRemainingTime = localStorage.getItem("remainingTime") - 1;
+  remainingTime = localRemainingTime;
+  countdownInterval = setInterval(updateCountdown, 1000);
+  resendLink.setAttribute("disabled", "true");
+  resendLink.href = "javascript:void(0);";
+  resendLink.style.opacity = 0.5;
 }
 
 if (resendLink && countdownElement) {
   if (!localStorage.getItem("hasStartedCountdown")) {
+    circleWrap.style.setProperty("--percentage", `360deg`);
     startCountdown();
     resendLink.setAttribute("disabled", "true");
     resendLink.href = "javascript:void(0);";
     resendLink.style.opacity = 0.5;
   } else {
     loadSavedData();
+    refreshWhileCountdown();
   }
 
   resendLink.addEventListener("click", function (e) {
