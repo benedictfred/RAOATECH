@@ -23,6 +23,7 @@ const loaderIndex = document.querySelector(".preloader");
 const loaderRegister = document.querySelector(".preloader__register");
 const loaderLogin = document.querySelector(".preloader__login");
 const welcome = document.querySelector(".welcome");
+const largeScreenMsg = document.querySelector(".large__screen");
 let countdownInterval;
 const showError = function () {
   errorMessage.classList.remove("hidden");
@@ -41,6 +42,12 @@ const showFillMessage = function () {
     fillMessage.classList.add("hidden");
   }, 3000);
 };
+
+const checkLargeScreen = function () {
+  window.innerWidth >= 1024
+    ? (largeScreenMsg.style.display = "flex")
+    : (largeScreenMsg.style.display = "none");
+};
 window.addEventListener("load", function () {
   if (loaderIndex) {
     this.setTimeout(() => loaderIndex.classList.add("hidden"), 2000);
@@ -48,7 +55,9 @@ window.addEventListener("load", function () {
   if (loaderRegister) {
     this.setTimeout(() => loaderRegister.classList.add("hidden"), 2000);
   }
+  checkLargeScreen();
 });
+window.addEventListener("resize", checkLargeScreen);
 window.addEventListener("pageshow", function (event) {
   if (event.persisted) {
     loaderLogin.classList.add("hidden");
