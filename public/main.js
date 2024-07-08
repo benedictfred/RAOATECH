@@ -11,9 +11,11 @@ const loginId = document.querySelector(".login__id");
 const formLogin = document.querySelector(".login__form");
 const errorMessage = document.getElementById("error-message");
 const fillMessage = document.querySelector(".fill__message");
-const checkinDetails = document.querySelector(".details");
+const checkinDetails = document.querySelector(".details__checkin");
+const checkoutDetails = document.querySelector(".details__checkout");
 const dashboard = document.querySelector(".dash__main");
 const checkinBtn = document.querySelector(".checkin__btn");
+const checkoutBtn = document.querySelector(".checkout__btn");
 const verifyEmail = document.querySelector(".verify__email");
 let formData = {};
 const resendLink = document.querySelector(".timer__reset");
@@ -24,6 +26,7 @@ const loaderRegister = document.querySelector(".preloader__register");
 const loaderLogin = document.querySelector(".preloader__login");
 const welcome = document.querySelector(".welcome");
 const largeScreenMsg = document.querySelector(".large__screen");
+const overlay = document.querySelector(".overlay");
 let countdownInterval;
 const showError = function () {
   errorMessage.classList.remove("hidden");
@@ -263,7 +266,7 @@ const setCheckinTime = function () {
   localStorage.setItem("checkinTime", formattedTime);
 };
 
-if (checkinDetails) {
+if (checkinDetails || checkoutDetails) {
   const storedData = JSON.parse(localStorage.getItem("formData"));
   const storedCheckinTime = localStorage.getItem("checkinTime");
 
@@ -278,6 +281,19 @@ if (checkinDetails) {
 if (dashboard) {
   checkinBtn.addEventListener("click", function () {
     setCheckinTime();
+  });
+
+  checkoutBtn.addEventListener("click", function () {
+    overlay.classList.remove("hidden");
+  });
+  document.querySelector(".btn__main").addEventListener("click", function (e) {
+    const btn = e.target.closest(".btn");
+    if (!btn) return;
+    if (btn.dataset.response === "yes") {
+      window.location.href = "checkout.html";
+    } else {
+      overlay.classList.add("hidden");
+    }
   });
 }
 const verifyEmailBtn = document.querySelector(".verify__email--btn");

@@ -165,7 +165,7 @@ html {
   @apply flex flex-col justify-center content-center mt-[8rem];
 }
 .dash__head {
-  @apply flex flex-row justify-center content-center items-center mt-[1rem] md:mt-[7rem] md:mr-[5rem];
+  @apply flex flex-row justify-center content-center items-center mt-[3rem] md:mt-[7rem] md:mr-[5rem];
 }
 .dash__btn {
   @apply text-white text-[1.5rem] text-center bg-[#FE705A] rounded-[50px_0px_50px_0px] w-[20.5rem] h-[3.5rem] bg-[url("../images/Login.png")] bg-[15rem] bg-no-repeat mt-[2rem];
@@ -188,7 +188,7 @@ html {
   @apply inline-block text-center ml-[5rem];
 }
 .curve__check {
-  @apply bg-[#2B5587] h-[35rem] w-[22rem] rounded-tr-[7rem] -z-10 absolute top-[18rem] max-[480px]:w-full md:w-[25rem] md:h-[40rem] md:top-[23rem];
+  @apply bg-[#2B5587] h-[40rem] w-[22rem] rounded-tr-[7rem] -z-10 absolute top-[18rem] max-[480px]:w-full md:w-[25rem] md:h-[45rem] md:top-[23rem];
 }
 
 /*Email Verify*/
