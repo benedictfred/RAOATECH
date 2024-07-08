@@ -128,7 +128,7 @@ html {
   @apply bg-[url("../images/BusinessCard.png")] bg-[30px_20px] bg-no-repeat p-[12px_20px_12px_70px];
 }
 .register__foot {
-  @apply text-white text-[1.1rem] mt-[0.7rem] mr-[2rem] flex justify-center items-center;
+  @apply text-white text-[1.25rem] mt-[0.7rem] mr-[2rem] flex justify-center items-center;
 }
 .login__foot {
   @apply text-[#FE705A] pl-2;
@@ -139,19 +139,19 @@ html {
   @apply flex flex-col justify-center items-center content-center;
 }
 .login__head {
-  @apply flex flex-row justify-center content-center items-center mt-[1rem];
+  @apply flex flex-row justify-center content-center items-center mt-[1rem] md:mt-[7rem] md:mr-[5rem];
 }
 .login__text {
   @apply text-[2rem] text-[#2B5587];
 }
 .login__form {
-  @apply mt-[0.5rem];
+  @apply mt-[0.5rem] md:flex md:flex-col;
 }
 .login__form input {
-  @apply m-3 w-[20.5rem] rounded-[50px_0px_50px_0px] h-[3.5rem] pl-[2rem] ml-[2rem] outline-none;
+  @apply m-3 w-[20.5rem] rounded-[50px_0px_50px_0px] h-[3.5rem] pl-[2rem] ml-[2rem] outline-none md:text-[1.2rem];
 }
 .curve__login {
-  @apply bg-[#2B5587] h-[32rem] w-[22rem] rounded-tr-[7rem] -z-10 absolute top-[18rem] max-[480px]:w-full md:w-[20rem] md:h-[40rem];
+  @apply bg-[#2B5587] h-[32rem] w-[22rem] rounded-tr-[7rem] -z-10 absolute top-[18rem] max-[480px]:w-full md:w-[25rem] md:h-[40rem] md:top-[23rem];
 }
 .login__submit {
   @apply text-white text-[1.5rem] text-center bg-[#FE705A] rounded-[1.8rem] w-[15rem] h-[4rem] ml-[5rem] mt-[1rem] bg-[url("../images/Login-small.png")] bg-[10rem] bg-no-repeat pb-1;
@@ -165,13 +165,13 @@ html {
   @apply flex flex-col justify-center content-center mt-[8rem];
 }
 .dash__head {
-  @apply flex flex-row justify-center content-center items-center mt-[1rem];
+  @apply flex flex-row justify-center content-center items-center mt-[1rem] md:mt-[7rem] md:mr-[5rem];
 }
 .dash__btn {
   @apply text-white text-[1.5rem] text-center bg-[#FE705A] rounded-[50px_0px_50px_0px] w-[20.5rem] h-[3.5rem] bg-[url("../images/Login.png")] bg-[15rem] bg-no-repeat mt-[2rem];
 }
 .dash__text {
-  @apply text-white text-[1.5rem] ml-2 leading-10;
+  @apply text-white text-center text-[1.5rem] ml-2 leading-10;
 }
 
 /*Check In / Out*/
@@ -182,13 +182,13 @@ html {
   @apply text-white font-bold text-[1.5rem];
 }
 .check__text {
-  @apply mt-[2rem] ml-[2.5rem];
+  @apply mt-[2rem] ml-[2.5rem] md:w-[20rem];
 }
 .saved__text {
   @apply inline-block text-center ml-[5rem];
 }
 .curve__check {
-  @apply bg-[#2B5587] h-[35rem] w-[22rem] rounded-tr-[7rem] -z-10 absolute top-[18rem] max-[480px]:w-full md:w-[20rem] md:h-[40rem];
+  @apply bg-[#2B5587] h-[35rem] w-[22rem] rounded-tr-[7rem] -z-10 absolute top-[18rem] max-[480px]:w-full md:w-[25rem] md:h-[40rem] md:top-[23rem];
 }
 
 /*Email Verify*/
@@ -201,7 +201,7 @@ html {
 
 /*Password Reset*/
 .form__reset {
-  @apply flex flex-col justify-center items-center;
+  @apply flex flex-col justify-center items-center md:mt-[3rem];
 }
 .inputContainer {
   @apply flex flex-row justify-center content-center items-center bg-[#CDCFCE] opacity-70 mt-[4rem] rounded-[1rem];
@@ -210,10 +210,10 @@ html {
   @apply w-[4rem] h-[5rem] text-center text-[2rem] focus:outline-black backdrop-opacity-40 border-2 border-collapse;
 }
 .head__reset {
-  @apply text-[1.5rem];
+  @apply text-[1.5rem] md:mt-[2rem];
 }
 .text__reset {
-  @apply text-[1rem] mr-[2rem] mt-[1rem];
+  @apply text-[1rem] mr-[2rem] mt-[1rem] md:text-[1.25rem];
 }
 .timer__reset {
   @apply text-white text-[1.25rem];

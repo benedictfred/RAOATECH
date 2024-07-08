@@ -9,18 +9,19 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="tailwind.css" />
+    <script defer src="main.js"></script>
     <title>RESET PASSWORD</title>
   </head>
   <body>
     <div
       class="outfit-bold large__screen fixed left-0 right-0 hidden justify-center content-center items-center w-full h-full z-[100] bg-[#CDCFCE] text-[1.5rem]"
     >
-      Hey, Large Screens are boring 😒😒. Why not switch to mobile to enjoy the
-      full experience 😊
+      Hey,switch to mobile to enjoy the full experience 😊
     </div>
     <nav>
       <a href="email.html"><button class="back__arrow">&larr;</button></a>
     </nav>
+
     <div class="flex flex-col ml-[1rem]">
       <h2 class="head__reset outfit-semibold">
         Enter 4-digit <br />
@@ -66,24 +67,21 @@
         class="outfit-regular mt-[1rem] flex justify-between content-between"
       >
         <a href="#" class="timer__reset">Resend code</a>
-
         <div class="circle-wrap ml-[5rem]" style="--percentage: 0deg">
           <div class="inner-circle">
             <span id="countdown" class="outfit-regular">60</span>
           </div>
         </div>
       </div>
-
       <button type="submit" class="verify outfit-medium">Continue</button>
     </form>
-
     <p
-      class="text-white text-center mt-[5rem] text-[0.75rem] outfit-semibold opacity-20"
+      class="text-white text-center mt-[5rem] text-[0.75rem] outfit-semibold opacity-20 md:mt-[10rem]"
     >
       POWERED BY RAOATECH
     </p>
-    <div class="curve"></div>
-
-    <script src="main.js"></script>
+    <div
+      class="curve md:absolute md:ml-[27%] md:top-[23rem] md:w-[25rem]"
+    ></div>
   </body>
 </html>
