@@ -11,8 +11,8 @@ const loginId = document.querySelector(".login__id");
 const formLogin = document.querySelector(".login__form");
 const errorMessage = document.getElementById("error-message");
 const fillMessage = document.querySelector(".fill__message");
-const checkinDetails = document.querySelector(".details__checkin");
-const checkoutDetails = document.querySelector(".details__checkout");
+const checkinDetails = document.querySelector(".details");
+// const checkoutDetails = document.querySelector(".details__checkout");
 const dashboard = document.querySelector(".dash__main");
 const checkinBtn = document.querySelector(".checkin__btn");
 const checkoutBtn = document.querySelector(".checkout__btn");
@@ -266,14 +266,16 @@ const setCheckinTime = function () {
   localStorage.setItem("checkinTime", formattedTime);
 };
 
-if (checkinDetails || checkoutDetails) {
+if (checkinDetails) {
   const storedData = JSON.parse(localStorage.getItem("formData"));
   const storedCheckinTime = localStorage.getItem("checkinTime");
 
   const html = ` <p>Login Details</p>
           <p>Name: ${storedData.fullName} </p>
           <p>Time of Check-in: ${storedCheckinTime}</p>
-          <p>Time of Check-out: N/A</p> `;
+          <p>Time of Check-out: ${
+            localStorage.getItem("checkoutTime") ?? `N/A`
+          }  </p> `;
 
   checkinDetails.insertAdjacentHTML("beforeend", html);
 }
@@ -281,6 +283,7 @@ if (checkinDetails || checkoutDetails) {
 if (dashboard) {
   checkinBtn.addEventListener("click", function () {
     setCheckinTime();
+    localStorage.removeItem("checkoutTime");
   });
 
   checkoutBtn.addEventListener("click", function () {
@@ -291,10 +294,15 @@ if (dashboard) {
     if (!btn) return;
     if (btn.dataset.response === "yes") {
       window.location.href = "checkout.html";
+      const now = new Date();
+      const checkoutTime = formatTime(now);
+      localStorage.setItem("checkoutTime", checkoutTime);
     } else {
       overlay.classList.add("hidden");
     }
   });
+
+  overlay.addEventListener("click", () => overlay.classList.add("hidden"));
 }
 const verifyEmailBtn = document.querySelector(".verify__email--btn");
 if (verifyEmail) {
